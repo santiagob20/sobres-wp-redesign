@@ -17,8 +17,9 @@ export function HeroMedia({ videos }: { videos: string[] }) {
     const play = () => {
       if (stopped || document.visibilityState === "hidden") return;
       const start = () => {
+        video.muted = true;
         video.play()?.catch(() => {
-          // Chrome aborts muted background video to save power.
+          // Mobile Chrome blocks autoplay until the element is muted.
         });
       };
       if (video.ended) {
@@ -66,6 +67,10 @@ export function HeroMedia({ videos }: { videos: string[] }) {
             key={src}
             ref={(node) => {
               videoRefs.current[clip] = node;
+              if (!node) return;
+              node.muted = true;
+              node.defaultMuted = true;
+              node.playsInline = true;
             }}
             className={cn(
               "absolute inset-0 h-full w-full object-cover",
