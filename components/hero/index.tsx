@@ -1,4 +1,3 @@
-import Script from "next/script";
 import { HeroMedia } from "@/components/hero/media";
 import { buttonVariants } from "@/components/ui/button";
 import { withBasePath } from "@/lib/seo";
@@ -10,12 +9,8 @@ const heroVideos = [withBasePath("/assets/hero-2.mp4"), withBasePath("/assets/he
 export function Hero() {
   return (
     <section id="inicio" className="relative isolate scroll-mt-[5.75rem] overflow-hidden bg-hero text-white md:scroll-mt-[12.375rem]">
+      <link rel="preload" as="video" href={heroVideos[0]} fetchPriority="high" />
       <HeroMedia videos={heroVideos} />
-      {heroVideos.length > 1 ? (
-        <Script id="hero-playlist" strategy="afterInteractive">
-          {`(function(){var root=document.getElementById("inicio");if(!root||root.dataset.playlist==="1")return;root.dataset.playlist="1";var videos=root.querySelectorAll("video");if(videos.length<2)return;var current=0;videos.forEach(function(video,index){video.addEventListener("ended",function(){if(index!==current)return;var next=(index+1)%videos.length;videos[next].currentTime=0;videos[current].style.opacity="0";videos[next].style.opacity="1";current=next;videos[next].play();});});})();`}
-        </Script>
-      ) : null}
       <div
         className={cn("absolute inset-0", heroVideos.length ? "bg-[#4d4d4d]/48" : "bg-hero")}
         aria-hidden="true"
