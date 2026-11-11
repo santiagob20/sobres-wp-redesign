@@ -40,7 +40,6 @@ export function HeroMedia({ videos }: { videos: string[] }) {
       muted
       playsInline
       preload="auto"
-      fetchPriority={index === 0 ? "high" : "low"}
       loop={videos.length === 1}
       aria-hidden="true"
       onEnded={() => {
