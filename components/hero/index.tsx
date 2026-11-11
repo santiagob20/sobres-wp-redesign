@@ -5,7 +5,7 @@ import { withBasePath } from "@/lib/seo";
 import { quoteWhatsapp } from "@/lib/site";
 import { cn } from "cn";
 
-const heroVideos = [withBasePath("/assets/hero-1.mp4"), withBasePath("/assets/hero-2.mp4")];
+const heroVideos = [withBasePath("/assets/hero-2.mp4"), withBasePath("/assets/hero-1.mp4")];
 
 export function Hero() {
   return (
