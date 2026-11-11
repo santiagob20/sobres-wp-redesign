@@ -55,16 +55,9 @@ button, input, select, textarea { font: inherit; }
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  color: var(--brand);
-  font-family: "Source Serif 4", Georgia, serif;
-  font-weight: 700;
-  font-size: 1.7rem;
-  letter-spacing: -0.03em;
-  line-height: 1;
-  text-decoration: none;
+  line-height: 0;
 }
-.logo svg { width: 58px; height: 50px; }
+.logo img { display: block; height: 56px; width: auto; }
 .brand { text-decoration: none; }
 .address {
   display: flex;
@@ -116,6 +109,8 @@ button, input, select, textarea { font: inherit; }
   display: grid;
 }
 .hero video, .hero-overlay { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero video { opacity: 0; transition: opacity 0.7s ease; }
+.hero video.is-active { opacity: 1; }
 .hero-overlay { background: rgba(77, 77, 77, 0.48); }
 .hero-copy {
   position: relative;
@@ -132,7 +127,7 @@ button, input, select, textarea { font: inherit; }
   font-weight: 400;
   line-height: 1.18;
 }
-.pill, .quote-form button, .pill.dark {
+.pill, .pill.dark {
   display: inline-flex;
   align-items: center;
   width: fit-content;
@@ -146,7 +141,23 @@ button, input, select, textarea { font: inherit; }
   text-decoration: none;
   cursor: pointer;
 }
-.pill.dark, .quote-form button { background: var(--brand); color: #fff; font-size: 1.05rem; font-weight: 700; }
+.pill.dark { background: var(--brand); color: #fff; font-size: 1.05rem; font-weight: 700; }
+.wa-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: fit-content;
+  margin-top: 1.4rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+  background: #1f8f3e;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.wa-btn svg { width: 1.25rem; height: 1.25rem; fill: currentColor; }
+.wa-btn:hover { background: #187433; }
 .trust ul, .stats ul {
   width: min(var(--max), calc(100% - 2rem));
   margin: 0 auto;
@@ -196,6 +207,7 @@ button, input, select, textarea { font: inherit; }
 .services { padding: 4.5rem 0 2rem; }
 .reasons { margin-top: 2.5rem; grid-template-columns: repeat(6, 1fr); }
 .reasons li {
+  position: relative;
   grid-column: span 2;
   min-height: 250px;
   margin: 0;
@@ -203,12 +215,20 @@ button, input, select, textarea { font: inherit; }
   list-style: none;
   display: flex;
   align-items: flex-end;
+  overflow: hidden;
   background: var(--hero);
   color: #fff;
 }
 .reasons li.wide { grid-column: span 3; }
 .reasons { list-style: none; padding: 0; }
-.reasons h3 { margin: 0; max-width: 16ch; font-size: 1.7rem; font-weight: 400; }
+.reasons h3 { position: relative; z-index: 1; margin: 0; max-width: 16ch; font-size: 1.7rem; font-weight: 400; }
+.reasons li.has-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
+.reasons li.has-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25) 45%, rgba(0, 0, 0, 0.1));
+}
 .stats ul { padding-top: 1rem; padding-bottom: 4rem; }
 .social {
   display: flex;
@@ -265,7 +285,7 @@ button, input, select, textarea { font: inherit; }
 .page-hero .eyebrow { color: rgba(255,255,255,0.8); }
 .page-hero p:last-child { max-width: 40rem; }
 .catalog { grid-template-columns: repeat(3, 1fr); }
-.catalog article, .size-grid article, .steps article, .quote-layout aside {
+.catalog article, .size-grid article, .steps article {
   background: #fff;
   padding: 1.3rem;
 }
@@ -277,22 +297,7 @@ button, input, select, textarea { font: inherit; }
 .size-grid li { display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px solid #f0f0f0; padding: 0.45rem 0; }
 .steps { grid-template-columns: repeat(4, 1fr); padding: 3rem 0; }
 .steps article { border-top: 4px solid var(--brand); }
-.quote-layout, .contact-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 2rem; padding: 3rem 0 4rem; }
-.quote-layout aside { background: var(--paper); }
-.quote-form { display: grid; gap: 0.9rem; }
-.quote-form label { display: grid; gap: 0.35rem; font-weight: 600; }
-.quote-form label span { font-weight: 400; color: #6b7280; }
-.quote-form input, .quote-form select, .quote-form textarea {
-  width: 100%;
-  border: 1px solid #d5d5d5;
-  border-radius: 6px;
-  padding: 0.7rem 0.8rem;
-  background: #fff;
-}
-.quote-form .check { grid-template-columns: auto 1fr; align-items: start; font-weight: 400; }
-.quote-form .check input { width: auto; margin-top: 0.3rem; }
-.form-errors { margin: 0; padding: 0.8rem 1rem; background: #fff6f6; color: #8d1d1d; border: 1px solid #e7b4b4; border-radius: 6px; }
-.draft { white-space: pre-wrap; background: #f7fafc; padding: 1rem; border-radius: 6px; }
+.contact-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 2rem; padding: 3rem 0 4rem; }
 .prose { padding: 3rem 0 4rem; max-width: 760px; }
 .prose h1 { font-size: 2.4rem; }
 .lead { font-size: 1.7rem; }
@@ -304,11 +309,11 @@ button, input, select, textarea { font: inherit; }
   .main-nav.is-open { display: block; }
   .nav-list { grid-template-columns: 1fr; }
   .hero-copy { padding: 3rem 1.4rem; }
-  .trust ul, .stats ul, .cards, .reasons, .catalog, .steps, .size-grid, .quote-layout, .contact-grid, .footer-grid {
+  .trust ul, .stats ul, .cards, .reasons, .catalog, .steps, .size-grid, .contact-grid, .footer-grid {
     grid-template-columns: 1fr 1fr;
   }
   .reasons li, .reasons li.wide { grid-column: auto; }
-  .steps, .quote-layout, .contact-grid, .footer-grid { grid-template-columns: 1fr; }
+  .steps, .contact-grid, .footer-grid { grid-template-columns: 1fr; }
   .address { font-size: 0.95rem; }
   .flag { width: 42px; height: 42px; }
   .flag span:nth-child(1) { height: 21px; }
@@ -317,6 +322,5 @@ button, input, select, textarea { font: inherit; }
 @media (max-width: 640px) {
   .trust ul, .cards, .catalog, .size-grid { grid-template-columns: 1fr; }
   .stats ul { grid-template-columns: 1fr 1fr; }
-  .logo { font-size: 1.3rem; }
-  .logo svg { width: 46px; height: 40px; }
+  .logo img { height: 40px; }
 }

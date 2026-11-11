@@ -1,42 +1,24 @@
+import Image from "next/image";
 import { cn } from "cn";
 
 export function Logo({
   className,
-  wordClassName,
+  alt = "SOBRYPAL",
+  priority = false,
 }: {
   className?: string;
-  wordClassName?: string;
+  alt?: string;
+  priority?: boolean;
 }) {
   return (
-    <span className={cn("inline-flex items-center gap-2.5 text-brand", className)}>
-      <svg
-        viewBox="0 0 78 68"
-        className="h-11 w-[3.4rem] shrink-0 md:h-[3.35rem] md:w-16"
-        aria-hidden="true"
-      >
-        <g
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="3.4"
-          strokeLinejoin="round"
-          strokeLinecap="round"
-          transform="rotate(-16 36 34)"
-        >
-          <path d="M14 22.5h44.5v30.5H14z" />
-          <path d="M14 22.5 36.2 39.2 58.5 22.5" />
-          <path d="M14 53 27.5 42.2" />
-          <path d="M58.5 53 45 42.2" />
-        </g>
-      </svg>
-      <span
-        className={cn(
-          "font-serif text-[1.65rem] leading-none font-bold tracking-[-0.03em] md:text-[2.05rem]",
-          wordClassName,
-        )}
-      >
-        SOBRYPAL
-      </span>
-    </span>
+    <Image
+      src="/logo-sobrypal.png"
+      alt={alt}
+      width={1024}
+      height={247}
+      priority={priority}
+      className={cn("h-10 w-auto md:h-14", className)}
+    />
   );
 }
 

@@ -17,7 +17,7 @@ get_header();
                 <h2><?php echo esc_html($product['name']); ?></h2>
                 <p><?php echo esc_html($product['summary']); ?></p>
                 <p><?php echo esc_html($product['text']); ?></p>
-                <a href="<?php echo esc_url(home_url('/cotiza/?producto=' . rawurlencode($product['name']))); ?>">Cotizar este sobre</a>
+                <a href="<?php echo esc_url(sobrypal_quote_whatsapp_url($product['name'])); ?>">Cotizar este sobre</a>
             </article>
         <?php endforeach; ?>
     </div>

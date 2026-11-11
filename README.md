@@ -16,13 +16,16 @@ npm run dev -- -p 3456
 
 Abre `http://127.0.0.1:3456`.
 
-## Poner el video del inicio
+## Videos del inicio
 
-1. Exporta el video en mp4.
-2. Guárdalo como `public/hero.mp4`.
-3. Recarga el inicio. El video queda a pantalla completa en la franja gris, con una capa gris semitransparente para que el texto blanco se siga leyendo.
+El inicio reproduce, en este orden y en bucle:
 
-Sin ese archivo, la franja se ve gris, como en el diseño.
+1. `public/hero-1.mp4` — prensa de impresión.
+2. `public/hero-2.mp4` — equipo de impresión.
+
+El texto blanco queda encima, con una capa gris semitransparente. Si falta un archivo, se usa el que sí esté. Si faltan los dos, la franja se ve gris.
+
+El tema de WordPress trae las mismas copias en `wordpress-theme/sobrypal/assets/video/`. En el personalizador se puede reemplazar cada una con una URL de la mediateca.
 
 ## Cambiar textos, teléfono o cifras
 
@@ -61,18 +64,20 @@ Si `style.css` queda en la raíz del zip, WordPress dice que el paquete no es un
 
 1. Apariencia → Temas → Añadir nuevo → Subir tema.
 2. Elige `sobrypal.zip` → Instalar ahora → Activar.
-3. Al activar, el tema crea (si no existen) las páginas Inicio, Productos, Servicios, Cotiza tu proyecto, Contacto y Política de privacidad, y deja Inicio como portada.
+3. Al activar, el tema crea (si no existen) las páginas Inicio, Productos, Servicios, Contacto y Política de privacidad, y deja Inicio como portada.
 
 La portada no usa el contenido viejo de BeTheme. Ese contenido sigue guardado en las páginas anteriores, por si necesitas copiar un párrafo.
 
 ### 4. El video
 
-1. Medios → Añadir nuevo archivo de medios → sube el mp4.
-2. Copia la URL del archivo (termina en `.mp4`).
-3. Apariencia → Personalizar → SOBRYPAL → pégala en «URL del video de inicio».
+El tema ya trae los dos videos del inicio y los rota solo. Para cambiarlos:
+
+1. Medios → Añadir nuevo archivo de medios → sube cada mp4.
+2. Copia la URL de cada archivo (termina en `.mp4`).
+3. Apariencia → Personalizar → SOBRYPAL → pégalas en el primer y el segundo video.
 4. Publicar.
 
-Si el video es muy claro y el texto blanco se pierde, dímelo: la capa gris se ajusta en `assets/css/main.css`, en `.hero-overlay`.
+Si un video es muy claro y el texto blanco se pierde, la capa gris se ajusta en `assets/css/main.css`, en `.hero-overlay`.
 
 ### 5. Menú, si quieres editarlo
 
@@ -105,7 +110,7 @@ Los textos de productos y de la portada están en `wordpress-theme/sobrypal/inc/
 En el computador y en el celular:
 
 - La portada muestra las seis líneas de sobres y las cifras.
-- Cotiza aquí abre el formulario. Al enviarlo se abre WhatsApp con el mensaje armado. No guarda una base de datos.
+- Cotiza aquí abre WhatsApp con un mensaje listo. No hay formulario ni base de datos.
 - Contacto muestra el mapa de la Carrera 57 # 70c-32.
 - El botón verde de WhatsApp abre el chat del `318 365 9759`.
 
@@ -113,4 +118,4 @@ En el computador y en el celular:
 
 Los bloques del constructor de BeTheme (Muffin Builder) no se convierten en este tema. La portada nueva ya trae el texto del diseño. Las páginas viejas quedan en el escritorio como borrador de consulta; no se muestran en la portada.
 
-El formulario no envía correo desde el servidor: arma el mensaje y abre WhatsApp, que es el canal que ya usa el taller. Si más adelante quieren que también llegue a un buzón, se puede conectar un plugin de formularios en la página Cotiza.
+La cotización no pasa por un formulario del sitio: el botón abre WhatsApp, que es el canal que ya usa el taller.

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
-import { company } from "@/lib/site";
+import { WhatsappButton } from "@/components/whatsapp-button";
+import { company, quoteWhatsapp } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contacto",
@@ -27,12 +27,7 @@ export default function ContactPage() {
               <br />
               {company.city}
             </p>
-            <a
-              href={company.whatsapp}
-              className="mt-6 inline-flex h-12 items-center rounded-full bg-[#1f8f3e] px-6 font-semibold text-white hover:bg-[#187433]"
-            >
-              WhatsApp {company.phoneDisplay}
-            </a>
+            <WhatsappButton className="mt-6">WhatsApp {company.phoneDisplay}</WhatsappButton>
             <ul className="mt-8 space-y-2 text-lg">
               <li>
                 <a href={company.facebook} className="hover:text-brand" target="_blank" rel="noreferrer">
@@ -45,9 +40,9 @@ export default function ContactPage() {
                 </a>
               </li>
               <li>
-                <Link href="/cotiza" className="hover:text-brand">
+                <a href={quoteWhatsapp} target="_blank" rel="noreferrer" className="hover:text-brand">
                   Pedir cotización
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

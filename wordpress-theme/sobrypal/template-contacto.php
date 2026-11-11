@@ -16,7 +16,7 @@ $query = rawurlencode($address . ', ' . $city . ', Colombia');
     <div>
         <p class="eyebrow">Dirección</p>
         <p class="lead"><?php echo esc_html($address); ?><br><?php echo esc_html($city); ?></p>
-        <a class="pill dark" href="<?php echo esc_url(sobrypal_whatsapp_url()); ?>">WhatsApp <?php echo esc_html(sobrypal_mod('phone_display')); ?></a>
+        <?php sobrypal_whatsapp_button('WhatsApp ' . sobrypal_mod('phone_display')); ?>
     </div>
     <iframe title="Mapa del taller SOBRYPAL" src="<?php echo esc_url('https://maps.google.com/maps?q=' . $query . '&z=16&output=embed'); ?>" loading="lazy"></iframe>
 </section>

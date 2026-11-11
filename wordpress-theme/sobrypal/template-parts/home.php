@@ -2,18 +2,20 @@
 /**
  * Homepage sections matching the approved design.
  */
-$video = get_theme_mod('sobrypal_hero_video', '');
+$videos = sobrypal_hero_videos();
 ?>
 <section class="hero" id="inicio">
-    <?php if ($video) : ?>
-        <video autoplay muted loop playsinline aria-hidden="true">
-            <source src="<?php echo esc_url($video); ?>" type="video/mp4">
-        </video>
+    <?php if ($videos) : ?>
+        <?php foreach ($videos as $index => $video) : ?>
+            <video class="<?php echo $index === 0 ? 'is-active' : ''; ?>" <?php echo $index === 0 ? 'autoplay' : ''; ?> muted playsinline <?php echo count($videos) === 1 ? 'loop' : ''; ?> preload="<?php echo $index === 0 ? 'auto' : 'metadata'; ?>" aria-hidden="true">
+                <source src="<?php echo esc_url($video); ?>" type="video/mp4">
+            </video>
+        <?php endforeach; ?>
         <div class="hero-overlay"></div>
     <?php endif; ?>
     <div class="hero-copy">
         <h1>Convertimos tu proyecto en un producto que habla por ti</h1>
-        <a class="pill" href="<?php echo esc_url(home_url('/cotiza/')); ?>">Cotiza tu proyecto</a>
+        <a class="pill" href="<?php echo esc_url(sobrypal_quote_whatsapp_url()); ?>" target="_blank" rel="noreferrer">Cotiza tu proyecto</a>
     </div>
 </section>
 
@@ -63,7 +65,10 @@ $video = get_theme_mod('sobrypal_hero_video', '');
         <h2 class="display">¿Por qué <span>SOBRYPAL?</span></h2>
         <ul class="reasons">
             <?php foreach (sobrypal_reasons() as $reason) : ?>
-                <li class="<?php echo $reason['wide'] ? 'wide' : ''; ?>">
+                <li class="<?php echo !empty($reason['image']) ? 'has-photo ' : ''; ?><?php echo $reason['wide'] ? 'wide' : ''; ?>">
+                    <?php if (!empty($reason['image'])) : ?>
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/' . $reason['image']); ?>" alt=""<?php echo !empty($reason['position']) ? ' style="object-position: ' . esc_attr($reason['position']) . '"' : ''; ?>>
+                    <?php endif; ?>
                     <h3><?php echo esc_html($reason['title']); ?></h3>
                 </li>
             <?php endforeach; ?>

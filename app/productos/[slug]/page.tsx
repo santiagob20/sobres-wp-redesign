@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/page-hero";
 import { ProductArt } from "@/components/product-art";
-import { QuoteForm } from "@/components/quote-form";
+import { WhatsappButton } from "@/components/whatsapp-button";
 import { getProduct, products } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -30,7 +30,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
-      <PageHero eyebrow="Producto" title={product.name} lede={product.summary} />
+      <PageHero compact eyebrow="Producto" title={product.name} lede={product.summary} />
       <section className="bg-white py-14">
         <div className="mx-auto grid max-w-[1280px] items-start gap-10 px-6 md:grid-cols-[0.9fr_1.1fr] md:px-14">
           <div className="overflow-hidden bg-[#f1f1f1]">
@@ -50,16 +50,11 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 </li>
               ))}
             </ul>
+            <WhatsappButton
+              className="mt-8"
+              message={`Hola SOBRYPAL, quiero cotizar ${product.name}.`}
+            />
           </div>
-        </div>
-      </section>
-      <section className="bg-paper py-14">
-        <div className="mx-auto max-w-[760px] px-6">
-          <h2 className="text-3xl font-bold">Cotizar {product.name.toLowerCase()}</h2>
-          <p className="mt-2 mb-8 text-[#3c4650]">
-            Cuéntanos cantidad, medida y si lleva impresión. La solicitud sale por WhatsApp al taller.
-          </p>
-          <QuoteForm key={product.slug} initialProduct={product.name} />
         </div>
       </section>
       <section className="bg-white py-12">

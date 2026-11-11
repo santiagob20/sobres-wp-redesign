@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { quoteWhatsapp } from "@/lib/site";
 
 export default function NotFound() {
   return (
@@ -12,12 +13,14 @@ export default function NotFound() {
         <Link href="/" className="inline-flex h-11 items-center rounded-full bg-brand px-6 font-semibold text-white">
           Ir al inicio
         </Link>
-        <Link
-          href="/cotiza"
+        <a
+          href={quoteWhatsapp}
+          target="_blank"
+          rel="noreferrer"
           className="inline-flex h-11 items-center rounded-full border border-brand px-6 font-semibold text-brand"
         >
           Cotizar
-        </Link>
+        </a>
       </div>
     </section>
   );

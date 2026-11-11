@@ -27,25 +27,24 @@ function sobrypal_assets() {
         array(),
         null
     );
-    wp_enqueue_style('sobrypal', get_template_directory_uri() . '/assets/css/main.css', array('sobrypal-fonts'), '1.0.0');
-    wp_enqueue_script('sobrypal', get_template_directory_uri() . '/assets/js/main.js', array(), '1.0.0', true);
-    wp_localize_script('sobrypal', 'sobrypalData', array(
-        'whatsapp' => sobrypal_whatsapp_url(),
-    ));
+    wp_enqueue_style('sobrypal', get_template_directory_uri() . '/assets/css/main.css', array('sobrypal-fonts'), '1.0.1');
+    wp_enqueue_script('sobrypal', get_template_directory_uri() . '/assets/js/main.js', array(), '1.0.1', true);
 }
 add_action('wp_enqueue_scripts', 'sobrypal_assets');
 
 function sobrypal_fallback_menu() {
     $items = array(
-        array('/#inicio', 'Inicio'),
-        array('/#productos', 'Productos'),
-        array('/#servicios', 'Servicios'),
-        array('/cotiza/', 'Cotiza aquí'),
-        array('/contacto/', 'Contáctanos'),
+        array('/#inicio', 'Inicio', false),
+        array('/#productos', 'Productos', false),
+        array('/#servicios', 'Servicios', false),
+        array(sobrypal_quote_whatsapp_url(), 'Cotiza aquí', true),
+        array('/contacto/', 'Contáctanos', false),
     );
     echo '<ul class="nav-list">';
     foreach ($items as $item) {
-        echo '<li><a href="' . esc_url(home_url($item[0])) . '">' . esc_html($item[1]) . '</a></li>';
+        $href = $item[2] ? $item[0] : home_url($item[0]);
+        $external = $item[2] ? ' target="_blank" rel="noreferrer"' : '';
+        echo '<li><a href="' . esc_url($href) . '"' . $external . '>' . esc_html($item[1]) . '</a></li>';
     }
     echo '</ul>';
 }
@@ -55,7 +54,6 @@ function sobrypal_create_pages() {
         'inicio' => array('Inicio', ''),
         'productos' => array('Productos', 'template-productos.php'),
         'servicios' => array('Servicios', 'template-servicios.php'),
-        'cotiza' => array('Cotiza tu proyecto', 'template-cotiza.php'),
         'contacto' => array('Contacto', 'template-contacto.php'),
         'politica-de-privacidad' => array('Política de privacidad', 'template-privacidad.php'),
     );
@@ -91,18 +89,19 @@ function sobrypal_create_pages() {
 }
 add_action('after_switch_theme', 'sobrypal_create_pages');
 
-function sobrypal_logo() {
+function sobrypal_redirect_quote_page() {
+    if (is_page('cotiza')) {
+        wp_redirect(sobrypal_quote_whatsapp_url(), 302);
+        exit;
+    }
+}
+add_action('template_redirect', 'sobrypal_redirect_quote_page');
+
+function sobrypal_logo($alt = '') {
+    $src = get_template_directory_uri() . '/assets/logo-sobrypal.png';
     ?>
     <span class="logo">
-        <svg viewBox="0 0 78 68" aria-hidden="true">
-            <g fill="none" stroke="currentColor" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round" transform="rotate(-16 36 34)">
-                <path d="M14 22.5h44.5v30.5H14z"></path>
-                <path d="M14 22.5 36.2 39.2 58.5 22.5"></path>
-                <path d="M14 53 27.5 42.2"></path>
-                <path d="M58.5 53 45 42.2"></path>
-            </g>
-        </svg>
-        <span>SOBRYPAL</span>
+        <img src="<?php echo esc_url($src); ?>" alt="<?php echo esc_attr($alt); ?>" width="1024" height="247">
     </span>
     <?php
 }

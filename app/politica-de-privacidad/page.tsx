@@ -46,8 +46,8 @@ export default function PrivacyPage() {
           </p>
           <h2 className="text-2xl font-bold text-[#1a1a1a]">Encargados</h2>
           <p>
-            El formulario de este sitio abre WhatsApp con el texto de la cotización. El mensaje queda en el
-            chat de WhatsApp del taller. No hay otra base de datos asociada a ese formulario.
+            La cotización se hace por WhatsApp. El mensaje queda en el chat del taller. Este sitio no guarda
+            otra base de datos con esos datos.
           </p>
           <p className="text-base text-[#5c6670]">
             Esta política describe la práctica del sitio. No reemplaza una asesoría jurídica sobre el registro

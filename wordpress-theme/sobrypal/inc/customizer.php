@@ -14,7 +14,8 @@ function sobrypal_customize($wp_customize) {
     ));
 
     $fields = array(
-        'hero_video' => 'URL del video de inicio (mp4). Vacío = fondo gris.',
+        'hero_video' => 'URL del primer video de inicio (mp4). Vacío = los videos del tema.',
+        'hero_video_2' => 'URL del segundo video de inicio (mp4).',
         'phone_display' => 'Teléfono visible',
         'phone_e164' => 'WhatsApp con indicativo, solo números (573183659759)',
         'address' => 'Dirección',
@@ -25,8 +26,8 @@ function sobrypal_customize($wp_customize) {
 
     foreach ($fields as $key => $label) {
         $wp_customize->add_setting('sobrypal_' . $key, array(
-            'default' => $key === 'hero_video' ? '' : sobrypal_mod($key),
-            'sanitize_callback' => $key === 'hero_video' || $key === 'facebook' || $key === 'instagram'
+            'default' => ($key === 'hero_video' || $key === 'hero_video_2') ? '' : sobrypal_mod($key),
+            'sanitize_callback' => ($key === 'hero_video' || $key === 'hero_video_2' || $key === 'facebook' || $key === 'instagram')
                 ? 'esc_url_raw'
                 : 'sanitize_text_field',
         ));

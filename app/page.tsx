@@ -63,18 +63,33 @@ export default function HomePage() {
             <span className="text-brand">SOBRYPAL?</span>
           </h2>
           <ul className="mt-12 grid gap-6 lg:grid-cols-6">
-            {reasons.map((reason) => (
-              <li
-                key={reason.title}
-                className={`flex min-h-[220px] flex-col justify-end bg-hero p-7 text-white md:min-h-[250px] md:p-8 ${
-                  reason.wide ? "lg:col-span-3" : "lg:col-span-2"
-                }`}
-              >
-                <h3 className="max-w-[18ch] text-[1.55rem] leading-snug font-normal md:text-[1.85rem]">
-                  {reason.title}
-                </h3>
-              </li>
-            ))}
+            {reasons.map((reason) => {
+              const image = "image" in reason ? reason.image : undefined;
+              const position = "position" in reason ? reason.position : undefined;
+              return (
+                <li
+                  key={reason.title}
+                  className={`relative flex min-h-[220px] flex-col justify-end overflow-hidden p-7 text-white md:min-h-[250px] md:p-8 ${
+                    image ? "" : "bg-hero"
+                  } ${reason.wide ? "lg:col-span-3" : "lg:col-span-2"}`}
+                >
+                  {image ? (
+                    <>
+                      <img
+                        src={image}
+                        alt=""
+                        className="absolute inset-0 h-full w-full object-cover object-[center_35%]"
+                        style={position ? { objectPosition: position } : undefined}
+                      />
+                      <span className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/10" />
+                    </>
+                  ) : null}
+                  <h3 className="relative max-w-[18ch] text-[1.55rem] leading-snug font-normal md:text-[1.85rem]">
+                    {reason.title}
+                  </h3>
+                </li>
+              );
+            })}
           </ul>
           <p className="mt-8 text-center">
             <Link href="/servicios" className="text-lg font-semibold text-brand hover:underline">

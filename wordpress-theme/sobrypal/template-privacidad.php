@@ -19,7 +19,7 @@ $phone = sobrypal_mod('phone_display');
     <p>Solo para elaborar la cotización, coordinar una muestra o una entrega y responder el mensaje. No vendemos esa información.</p>
     <h2>Tus derechos</h2>
     <p>Puedes conocer, actualizar, rectificar y solicitar la eliminación de tus datos cuando sea procedente. Escríbenos por WhatsApp al <?php echo esc_html($phone); ?> indicando tu nombre y el derecho que quieres ejercer.</p>
-    <p>El formulario abre WhatsApp con el texto de la cotización. No hay otra base de datos asociada a ese formulario. Esta página describe la práctica del sitio y no reemplaza una asesoría jurídica.</p>
+    <p>La cotización se hace por WhatsApp. El mensaje queda en el chat del taller. Esta página describe la práctica del sitio y no reemplaza una asesoría jurídica.</p>
 </article>
 <?php
 get_footer();

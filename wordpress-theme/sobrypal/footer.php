@@ -17,11 +17,11 @@ $query = rawurlencode($address . ', ' . $city . ', Colombia');
     </div>
     <div class="footer-grid">
         <div>
-            <?php sobrypal_logo(); ?>
+            <?php sobrypal_logo('SOBRYPAL'); ?>
             <p class="footer-address"><?php echo esc_html($address); ?><br><?php echo esc_html($city); ?></p>
             <a class="wa-link" href="<?php echo esc_url(sobrypal_whatsapp_url()); ?>">WhatsApp <?php echo esc_html($phone); ?></a>
             <ul class="plain">
-                <li><a href="<?php echo esc_url(home_url('/cotiza/')); ?>">Pedir cotización</a></li>
+                <li><a href="<?php echo esc_url(sobrypal_quote_whatsapp_url()); ?>" target="_blank" rel="noreferrer">Pedir cotización</a></li>
                 <li><a href="<?php echo esc_url(home_url('/politica-de-privacidad/')); ?>">Política de privacidad</a></li>
             </ul>
         </div>

@@ -13,8 +13,8 @@ function sobrypal_defaults() {
         'phone_e164' => '573183659759',
         'address' => 'Carrera 57 # 70c - 32',
         'city' => 'Bogotá',
-        'facebook' => 'https://web.facebook.com/sobrypalsi',
-        'instagram' => 'https://www.instagram.com/sobrypal',
+        'facebook' => 'https://web.facebook.com/SOBRYPAL',
+        'instagram' => 'https://www.instagram.com/sobresenpapel',
     );
 }
 
@@ -26,6 +26,46 @@ function sobrypal_mod($key) {
 
 function sobrypal_whatsapp_url() {
     return 'https://wa.me/' . preg_replace('/\D/', '', sobrypal_mod('phone_e164'));
+}
+
+function sobrypal_hero_videos() {
+    $custom = array_filter(array(
+        get_theme_mod('sobrypal_hero_video', ''),
+        get_theme_mod('sobrypal_hero_video_2', ''),
+    ));
+    if ($custom) {
+        return array_values($custom);
+    }
+
+    $videos = array();
+    $dir = get_template_directory() . '/assets/video';
+    $uri = get_template_directory_uri() . '/assets/video';
+    foreach (array('hero-1.mp4', 'hero-2.mp4') as $file) {
+        if (file_exists($dir . '/' . $file)) {
+            $videos[] = $uri . '/' . $file;
+        }
+    }
+    return $videos;
+}
+
+function sobrypal_quote_whatsapp_url($product = '') {
+    $message = $product !== ''
+        ? 'Hola SOBRYPAL, quiero cotizar ' . $product . '.'
+        : 'Hola SOBRYPAL, quiero cotizar un proyecto.';
+    return sobrypal_whatsapp_url() . '?text=' . rawurlencode($message);
+}
+
+function sobrypal_whatsapp_button($label, $message = '') {
+    $url = sobrypal_whatsapp_url();
+    if ($message !== '') {
+        $url .= '?text=' . rawurlencode($message);
+    }
+    ?>
+    <a class="wa-btn" href="<?php echo esc_url($url); ?>" target="_blank" rel="noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.1 3.2A8.7 8.7 0 0 0 4.6 16.3L3.5 20.5l4.3-1.1A8.7 8.7 0 1 0 12.1 3.2zm5 12.3c-.2.6-1.2 1.1-1.7 1.2-.4.1-.9.1-1.5-.1-.3-.1-.7-.3-1.3-.5-2.2-1-3.6-3.2-3.7-3.3-.1-.2-.9-1.2-.9-2.3s.6-1.6.8-1.8c.2-.2.4-.3.6-.3h.4c.1 0 .3 0 .5.4.2.5.6 1.6.7 1.7.1.1.1.3 0 .4l-.3.5c-.1.1-.2.3-.1.4.1.2.6 1 1.3 1.6.9.8 1.6 1 1.8 1.1.2.1.4.1.5-.1.1-.2.6-.7.7-.9.2-.2.3-.2.5-.1l1.6.8c.2.1.4.2.4.3.1.2.1.7-.1 1.3z"/></svg>
+        <?php echo esc_html($label); ?>
+    </a>
+    <?php
 }
 
 function sobrypal_products() {
@@ -111,10 +151,10 @@ function sobrypal_featured_products() {
 
 function sobrypal_reasons() {
     return array(
-        array('title' => 'Atención personalizada', 'wide' => true, 'text' => 'Hablas con quien fabrica. Revisamos el uso, el papel y la cantidad antes de producir.'),
-        array('title' => 'Impresión y acabados bajo demanda', 'wide' => true, 'text' => 'Imprimimos solo lo que el proyecto necesita: una tinta, un dato variable o la cara completa.'),
-        array('title' => 'Productos personalizados', 'wide' => false, 'text' => 'Medida, solapa, ventanilla y marca se definen para ese lote.'),
-        array('title' => 'Entrega de muestras para aprobación', 'wide' => false, 'text' => 'Cuando el proyecto lo pide, apruebas la muestra y después arranca el lote.'),
-        array('title' => 'Velocidad en tiempos de entrega', 'wide' => false, 'text' => 'El taller está en Bogotá. La fecha se acuerda con el volumen y el acabado.'),
+        array('title' => 'Atención personalizada', 'wide' => true, 'image' => 'atencion-personalizada.jpg', 'text' => 'Hablas con quien fabrica. Revisamos el uso, el papel y la cantidad antes de producir.'),
+        array('title' => 'Impresión y acabados bajo demanda', 'wide' => true, 'image' => 'impresion-bajo-demanda.jpg', 'text' => 'Imprimimos solo lo que el proyecto necesita: una tinta, un dato variable o la cara completa.'),
+        array('title' => 'Productos personalizados', 'wide' => false, 'image' => 'productos-personalizados.jpg', 'text' => 'Medida, solapa, ventanilla y marca se definen para ese lote.'),
+        array('title' => 'Entrega de muestras para aprobación', 'wide' => false, 'image' => 'entrega-muestras.jpg', 'text' => 'Cuando el proyecto lo pide, apruebas la muestra y después arranca el lote.'),
+        array('title' => 'Velocidad en tiempos de entrega', 'wide' => false, 'image' => 'velocidad-entrega.jpg', 'position' => 'center 70%', 'text' => 'El taller está en Bogotá. La fecha se acuerda con el volumen y el acabado.'),
     );
 }

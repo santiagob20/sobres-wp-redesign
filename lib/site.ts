@@ -11,11 +11,15 @@ export const company = {
   mapsQuery: "Carrera 57 #70c-32, Bogotá, Colombia",
 } as const;
 
+export const quoteMessage = "Hola SOBRYPAL, quiero cotizar un proyecto.";
+
+export const quoteWhatsapp = `${company.whatsapp}?text=${encodeURIComponent(quoteMessage)}`;
+
 export const nav = [
   { href: "/#inicio", label: "Inicio" },
   { href: "/#productos", label: "Productos" },
   { href: "/#servicios", label: "Servicios" },
-  { href: "/cotiza", label: "Cotiza aquí" },
+  { href: quoteWhatsapp, label: "Cotiza aquí", external: true },
   { href: "/contacto", label: "Contáctanos" },
 ] as const;
 
@@ -247,26 +251,32 @@ export const reasons = [
   {
     title: "Atención personalizada",
     wide: true,
+    image: "/atencion-personalizada.jpg",
     text: "Hablas con quien fabrica. Revisamos el uso, el papel y la cantidad antes de producir.",
   },
   {
     title: "Impresión y acabados bajo demanda",
     wide: true,
+    image: "/impresion-bajo-demanda.jpg",
     text: "Imprimimos solo lo que el proyecto necesita: una tinta, un dato variable o la cara completa.",
   },
   {
     title: "Productos personalizados",
     wide: false,
+    image: "/productos-personalizados.jpg",
     text: "Medida, solapa, ventanilla y marca se definen para ese lote, no para un catálogo cerrado.",
   },
   {
     title: "Entrega de muestras para aprobación",
     wide: false,
+    image: "/entrega-muestras.jpg",
     text: "Cuando el proyecto lo pide, produces la muestra y arrancamos el lote después de tu visto bueno.",
   },
   {
     title: "Velocidad en tiempos de entrega",
     wide: false,
+    image: "/velocidad-entrega.jpg",
+    position: "center 70%",
     text: "El taller está en Bogotá. Acordamos la fecha con el volumen y el acabado, y la cumplimos.",
   },
 ] as const;

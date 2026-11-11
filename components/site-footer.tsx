@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/logo";
-import { company, footerProducts } from "@/lib/site";
+import { company, footerProducts, quoteWhatsapp } from "@/lib/site";
 
 export function SiteFooter() {
   const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(company.mapsQuery)}&z=16&output=embed`;
@@ -55,9 +55,9 @@ export function SiteFooter() {
           </a>
           <ul className="mt-4 space-y-2 text-lg md:text-xl">
             <li>
-              <Link href="/cotiza" className="hover:text-brand">
+              <a href={quoteWhatsapp} target="_blank" rel="noreferrer" className="hover:text-brand">
                 Pedir cotización
-              </Link>
+              </a>
             </li>
             <li>
               <Link href="/politica-de-privacidad" className="hover:text-brand">

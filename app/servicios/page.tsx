@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
-import { reasons } from "@/lib/site";
+import { quoteWhatsapp, reasons } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Servicios",
@@ -60,12 +59,14 @@ export default function ServicesPage() {
               </li>
             ))}
           </ul>
-          <Link
-            href="/cotiza"
+          <a
+            href={quoteWhatsapp}
+            target="_blank"
+            rel="noreferrer"
             className="mt-10 inline-flex h-12 items-center rounded-full bg-brand px-8 font-semibold text-white hover:bg-[#014e84]"
           >
             Cotiza tu proyecto
-          </Link>
+          </a>
         </div>
       </section>
     </>

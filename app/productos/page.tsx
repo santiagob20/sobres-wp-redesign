@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
 import { ProductArt } from "@/components/product-art";
-import { products, sizes } from "@/lib/site";
+import { products, quoteWhatsapp, sizes } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Productos",
@@ -52,9 +52,14 @@ export default function ProductsPage() {
               <p className="mt-3 text-[#3c4650]">
                 Sobres cuadrados, para radiografía, para diezmo y cualquier formato que el contenido pida.
               </p>
-              <Link href="/cotiza" className="mt-4 inline-block font-semibold text-brand hover:underline">
+              <a
+                href={quoteWhatsapp}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 inline-block font-semibold text-brand hover:underline"
+              >
                 Cotizar una medida
-              </Link>
+              </a>
             </article>
           </div>
         </div>
