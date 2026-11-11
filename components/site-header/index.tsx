@@ -22,7 +22,7 @@ export function SiteHeader() {
             aria-label={`${company.addressLine}, ${company.city}`}
             className="flex items-center gap-3 text-right text-[0.95rem] leading-tight text-[#1a1a1a] md:text-xl"
           >
-            <ColombiaFlag className="h-11 w-11 md:h-14 md:w-14" />
+            <ColombiaFlag />
             <span className="hidden md:block">
               {company.addressLine}
               <br />

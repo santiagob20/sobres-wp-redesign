@@ -1,20 +1,35 @@
+import { CountUp } from "@/components/count-up";
+import { FadeIn } from "@/components/fade-in";
+import { ICON_FADE_STAGGER_MS } from "@/lib/motion";
 import { trust } from "@/lib/site";
 
 export function TrustBar() {
   return (
     <section className="bg-white" aria-label="Razones para trabajar con SOBRYPAL">
       <ul className="mx-auto grid max-w-[1280px] grid-cols-2 gap-x-4 gap-y-10 px-6 py-12 md:grid-cols-4 md:px-10 md:py-16">
-        {trust.map((item) => (
+        {trust.map((item, index) => (
           <li key={item.id} className="flex flex-col items-center text-center">
             <div className="grid h-20 place-items-center text-brand md:h-24">
-              {item.id === "calidad" ? <QualityIcon /> : null}
-              {item.id === "entregas" ? <DeliveryIcon /> : null}
-              {item.id === "clientes" ? (
+              {item.id === "calidad" ? (
+                <FadeIn delay={index * ICON_FADE_STAGGER_MS}>
+                  <QualityIcon />
+                </FadeIn>
+              ) : null}
+              {item.id === "entregas" ? (
+                <FadeIn delay={index * ICON_FADE_STAGGER_MS}>
+                  <DeliveryIcon />
+                </FadeIn>
+              ) : null}
+              {item.id === "clientes" && "figure" in item ? (
                 <p className="text-[2.6rem] leading-none font-normal tracking-tight md:text-[3.35rem]">
-                  {item.figure}
+                  <CountUp value={item.figure} />
                 </p>
               ) : null}
-              {item.id === "personalizacion" ? <SlidersIcon /> : null}
+              {item.id === "personalizacion" ? (
+                <FadeIn delay={index * ICON_FADE_STAGGER_MS}>
+                  <SlidersIcon />
+                </FadeIn>
+              ) : null}
             </div>
             <p className="mt-3 max-w-[16ch] text-base leading-snug md:text-[1.15rem]">{item.title}</p>
           </li>

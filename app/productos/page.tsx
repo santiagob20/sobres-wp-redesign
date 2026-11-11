@@ -20,7 +20,7 @@ export default function ProductsPage() {
         lede="Seis líneas cubren la mayoría de los proyectos. Si el contenido pide otra medida o otro papel, lo fabricamos."
       />
       <section className="bg-paper py-14 md:py-16">
-        <ul className="mx-auto grid max-w-[1280px] grid-cols-1 gap-7 px-6 sm:grid-cols-2 lg:grid-cols-3 md:px-14">
+        <ul className="mx-auto grid max-w-[1280px] grid-cols-2 gap-3 px-4 sm:gap-7 sm:px-6 lg:grid-cols-3 md:px-14">
           {products.map((product) => (
             <li key={product.slug}>
               <Link
@@ -30,9 +30,9 @@ export default function ProductsPage() {
                 <div className="aspect-[368/240] bg-[#f1f1f1]">
                   <ProductArt kind={product.art} />
                 </div>
-                <div className="flex flex-1 flex-col gap-2 px-5 py-5">
-                  <h2 className="text-2xl text-brand">{product.name}</h2>
-                  <p className="text-[#3c4650]">{product.summary}</p>
+                <div className="flex flex-1 flex-col gap-1 px-3 py-3 sm:gap-2 sm:px-5 sm:py-5">
+                  <h2 className="text-base leading-tight text-brand sm:text-2xl">{product.name}</h2>
+                  <p className="text-xs leading-snug text-[#3c4650] sm:text-base">{product.summary}</p>
                 </div>
               </Link>
             </li>

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { CookieSettingsButton } from "@/components/cookie-consent";
-import { FooterMap } from "@/components/site-footer/footer-map";
 import { Logo } from "@/components/logo";
 import { company, footerProducts, quoteWhatsapp } from "@/lib/site";
 
@@ -88,14 +87,38 @@ export function SiteFooter() {
           <p className="text-[0.95rem] text-[#3c4650]">
             Cra. 57 #70c-32, {company.city}
           </p>
-          <FooterMap
-            src={mapSrc}
-            mapsUrl={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(company.mapsQuery)}`}
-          />
+          <div className="mt-3 overflow-hidden rounded-md border border-[#e4e4e4]">
+            <iframe
+              title="Mapa del taller SOBRYPAL en Bogotá"
+              src={mapSrc}
+              className="h-52 w-full"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+          <a
+            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(company.mapsQuery)}`}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-2 inline-block text-sm text-brand hover:underline"
+          >
+            Abrir en Maps
+          </a>
         </div>
       </div>
       <div className="border-t border-[#eee] px-6 py-4 text-center text-sm text-[#5c6670]">
-        © {new Date().getFullYear()} {company.legalName}. Fabricación de sobres en {company.city}.
+        <p>© {new Date().getFullYear()} {company.legalName}. Fabricación de sobres en {company.city}.</p>
+        <p className="mt-1 text-xs">
+          Videos del inicio:{" "}
+          <a
+            href="https://www.vecteezy.com/free-videos/paper-cutting"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-brand hover:underline"
+          >
+            Paper Cutting Stock Videos by Vecteezy
+          </a>
+        </p>
       </div>
     </footer>
   );

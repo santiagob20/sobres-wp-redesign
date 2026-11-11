@@ -25,14 +25,14 @@ export function ColombiaFlag({ className }: { className?: string }) {
   return (
     <span
       className={cn(
-        "inline-grid h-14 w-14 shrink-0 overflow-hidden rounded-[0.85rem] shadow-[0_1px_2px_rgba(0,0,0,0.12)]",
+        "inline-grid aspect-square h-11 w-11 shrink-0 grid-rows-[2fr_1fr_1fr] overflow-hidden rounded-[0.85rem] shadow-[0_1px_2px_rgba(0,0,0,0.12)] md:h-14 md:w-14",
         className,
       )}
       aria-hidden="true"
     >
-      <span className="block h-7 bg-[#fbed20]" />
-      <span className="block h-3.5 bg-[#003893]" />
-      <span className="block h-3.5 bg-[#ce1126]" />
+      <span className="bg-[#fbed20]" />
+      <span className="bg-[#003893]" />
+      <span className="bg-[#ce1126]" />
     </span>
   );
 }

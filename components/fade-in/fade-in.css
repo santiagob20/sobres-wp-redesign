@@ -1,0 +1,23 @@
+@keyframes sobrypal-icon-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.sobrypal-icon-fade {
+  animation-name: sobrypal-icon-fade;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sobrypal-icon-fade {
+    animation: none;
+  }
+}
