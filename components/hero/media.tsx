@@ -14,12 +14,20 @@ export function HeroMedia({ videos }: { videos: string[] }) {
     if (!video) return;
 
     let stopped = false;
+    let retryOnTap: (() => void) | null = null;
     const play = () => {
       if (stopped || document.visibilityState === "hidden") return;
       const start = () => {
         video.muted = true;
+        video.playsInline = true;
         video.play()?.catch(() => {
-          // Mobile Chrome blocks autoplay until the element is muted.
+          // iOS does not load a video until play() is requested, and it
+          // rejects that call unless the element is already muted.
+          retryOnTap = () => {
+            video.muted = true;
+            video.play()?.catch(() => {});
+          };
+          document.addEventListener("pointerdown", retryOnTap, { once: true });
         });
       };
       if (video.ended) {
@@ -33,13 +41,12 @@ export function HeroMedia({ videos }: { videos: string[] }) {
       if (document.visibilityState === "visible" && video.paused) play();
     };
 
-    if (video.readyState >= 2) play();
-    else video.addEventListener("canplay", play);
+    play();
     document.addEventListener("visibilitychange", resume);
 
     return () => {
       stopped = true;
-      video.removeEventListener("canplay", play);
+      if (retryOnTap) document.removeEventListener("pointerdown", retryOnTap);
       document.removeEventListener("visibilitychange", resume);
     };
   }, [index]);
@@ -79,6 +86,7 @@ export function HeroMedia({ videos }: { videos: string[] }) {
             src={src}
             muted
             playsInline
+            autoPlay={clip === index}
             preload="auto"
             loop={videos.length === 1}
             aria-hidden="true"
