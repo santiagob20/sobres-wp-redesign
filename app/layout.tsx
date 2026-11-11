@@ -51,7 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Saltar al contenido
         </a>
         <SiteHeader />
-        <main id="contenido" className="flex-1">
+        <main id="contenido" className="flex-1 scroll-mt-[5.75rem] md:scroll-mt-[12.375rem]">
           {children}
         </main>
         <SiteFooter />

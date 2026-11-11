@@ -12,7 +12,7 @@ export function PageHero({
   compact?: boolean;
 }) {
   return (
-    <section className="bg-brand text-white">
+    <section className="scroll-mt-[5.75rem] bg-brand text-white md:scroll-mt-[12.375rem]">
       <div
         className={cn(
           "mx-auto max-w-[1280px] px-6 md:px-16",
@@ -31,7 +31,7 @@ export function PageHero({
         ) : null}
         <h1
           className={cn(
-            "max-w-[18ch] leading-tight font-bold text-balance",
+            "max-w-[18ch] scroll-mt-[5.75rem] leading-tight font-bold text-balance md:scroll-mt-[12.375rem]",
             compact ? "text-3xl md:text-4xl" : "text-4xl md:text-5xl",
           )}
         >

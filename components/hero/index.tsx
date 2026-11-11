@@ -9,7 +9,7 @@ const heroVideos = [withBasePath("/assets/hero-1.mp4"), withBasePath("/assets/he
 
 export function Hero() {
   return (
-    <section id="inicio" className="relative isolate overflow-hidden bg-hero text-white">
+    <section id="inicio" className="relative isolate scroll-mt-[5.75rem] overflow-hidden bg-hero text-white md:scroll-mt-[12.375rem]">
       <HeroMedia videos={heroVideos} />
       {heroVideos.length > 1 ? (
         <Script id="hero-playlist" strategy="afterInteractive">

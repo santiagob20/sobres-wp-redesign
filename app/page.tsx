@@ -21,7 +21,7 @@ export default function HomePage() {
     <>
       <Hero />
       <TrustBar />
-      <section id="productos" className="bg-paper py-16 md:py-20">
+      <section id="productos" className="scroll-mt-[5.75rem] bg-paper py-16 md:scroll-mt-[12.375rem] md:py-20">
         <div className="mx-auto max-w-[1280px] px-6 md:px-14">
           <h2 className="text-center text-4xl font-bold tracking-tight md:text-[3.15rem]">
             <span className="text-[#1a1a1a]">¿Qué </span>
@@ -68,7 +68,7 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section id="servicios" className="bg-white py-16 md:py-20">
+      <section id="servicios" className="scroll-mt-[5.75rem] bg-white py-16 md:scroll-mt-[12.375rem] md:py-20">
         <div className="mx-auto max-w-[1280px] px-6 md:px-14">
           <h2 className="text-center text-4xl font-bold tracking-tight md:text-[3.15rem]">
             <span>¿Por qué </span>
