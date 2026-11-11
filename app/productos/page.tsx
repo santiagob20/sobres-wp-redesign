@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
 import { ProductArt } from "@/components/product-art";
+import { pageMetadata } from "@/lib/seo";
 import { products, quoteWhatsapp, sizes } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Productos",
+export const metadata = pageMetadata({
+  title: "Sobres a la medida",
   description:
-    "Sobres para diezmo, colores, eventos, correspondencia, e-commerce, centros médicos y medidas a pedido.",
-};
+    "Catálogo de sobres fabricados en Bogotá: diezmo, colores, eventos, correspondencia, e-commerce y centros médicos. Medidas básicas y formatos a pedido, con entrega en Colombia.",
+  path: "/productos",
+});
 
 export default function ProductsPage() {
   return (
@@ -42,7 +43,7 @@ export default function ProductsPage() {
         <div className="mx-auto max-w-[1280px] px-6 md:px-14">
           <h2 className="text-3xl font-bold md:text-4xl">Medidas</h2>
           <p className="mt-3 max-w-2xl text-lg text-[#3c4650]">
-            Estas son las medidas con las que más trabajamos. Si necesitas otra, la fabricamos.
+            El taller en Bogotá fabrica estas medidas y también formatos a pedido. Los pedidos salen a todo el país.
           </p>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             <SizeCard title="Básicas" items={sizes.basicas} />

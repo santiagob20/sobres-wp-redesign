@@ -1,3 +1,9 @@
+import atencionPersonalizada from "@/assets/atencion-personalizada.jpg";
+import entregaMuestras from "@/assets/entrega-muestras.jpg";
+import impresionBajoDemanda from "@/assets/impresion-bajo-demanda.jpg";
+import productosPersonalizados from "@/assets/productos-personalizados.jpg";
+import velocidadEntrega from "@/assets/velocidad-entrega.jpg";
+
 export const company = {
   name: "SOBRYPAL",
   legalName: "SOBRYPAL S.A.S.",
@@ -251,31 +257,31 @@ export const reasons = [
   {
     title: "Atención personalizada",
     wide: true,
-    image: "/atencion-personalizada.jpg",
+    image: atencionPersonalizada.src,
     text: "Hablas con quien fabrica. Revisamos el uso, el papel y la cantidad antes de producir.",
   },
   {
     title: "Impresión y acabados bajo demanda",
     wide: true,
-    image: "/impresion-bajo-demanda.jpg",
+    image: impresionBajoDemanda.src,
     text: "Imprimimos solo lo que el proyecto necesita: una tinta, un dato variable o la cara completa.",
   },
   {
     title: "Productos personalizados",
     wide: false,
-    image: "/productos-personalizados.jpg",
+    image: productosPersonalizados.src,
     text: "Medida, solapa, ventanilla y marca se definen para ese lote, no para un catálogo cerrado.",
   },
   {
     title: "Entrega de muestras para aprobación",
     wide: false,
-    image: "/entrega-muestras.jpg",
+    image: entregaMuestras.src,
     text: "Cuando el proyecto lo pide, produces la muestra y arrancamos el lote después de tu visto bueno.",
   },
   {
     title: "Velocidad en tiempos de entrega",
     wide: false,
-    image: "/velocidad-entrega.jpg",
+    image: velocidadEntrega.src,
     position: "center 70%",
     text: "El taller está en Bogotá. Acordamos la fecha con el volumen y el acabado, y la cumplimos.",
   },

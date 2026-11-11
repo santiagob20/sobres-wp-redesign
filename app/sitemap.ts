@@ -1,19 +1,23 @@
 import type { MetadataRoute } from "next";
+import { siteUrl } from "@/lib/seo";
 import { products } from "@/lib/site";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://solucionesensobres.com";
   const paths = [
-    "",
-    "/productos",
-    "/servicios",
-    "/contacto",
-    "/politica-de-privacidad",
-    ...products.map((product) => `/productos/${product.slug}`),
+    { path: "", priority: 1 },
+    { path: "/productos", priority: 0.9 },
+    { path: "/servicios", priority: 0.8 },
+    { path: "/contacto", priority: 0.8 },
+    ...products.map((product) => ({ path: `/productos/${product.slug}`, priority: 0.7 })),
+    { path: "/politica-de-privacidad", priority: 0.2 },
   ];
-  return paths.map((path) => ({
-    url: `${base}${path}`,
+  const lastModified = new Date();
+  return paths.map(({ path, priority }) => ({
+    url: path === "" ? `${siteUrl}/` : `${siteUrl}${path}/`,
+    lastModified,
     changeFrequency: "monthly",
-    priority: path === "" ? 1 : 0.7,
+    priority,
   }));
 }

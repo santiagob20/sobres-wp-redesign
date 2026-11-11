@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import { Source_Sans_3, Source_Serif_4 } from "next/font/google";
+import { Analytics } from "@/components/analytics";
+import { CookieConsent } from "@/components/cookie-consent";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WhatsappFab } from "@/components/whatsapp-fab";
+import { JsonLd } from "@/components/json-ld";
+import { businessJsonLd, siteDescription } from "@/lib/seo";
 import { company } from "@/lib/site";
-import "./globals.css";
+import "@/styles/globals.css";
 
 const sourceSans = Source_Sans_3({
   subsets: ["latin"],
@@ -18,43 +22,27 @@ const sourceSerif = Source_Serif_4({
   variable: "--font-serif",
 });
 
-const description =
-  "Fabricante de sobres en Bogotá. Diezmo, correspondencia, e-commerce, centros médicos y eventos, con papel importado e impresión a la medida.";
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://solucionesensobres.com"),
   title: {
-    default: "SOBRYPAL · Soluciones en sobres",
+    default: "SOBRYPAL · Fabricante de sobres en Bogotá",
     template: "%s · SOBRYPAL",
   },
-  description,
+  description: siteDescription,
+  applicationName: company.name,
+  robots: { index: true, follow: true },
   openGraph: {
-    title: "SOBRYPAL · Soluciones en sobres",
-    description,
+    title: "SOBRYPAL · Fabricante de sobres en Bogotá",
+    description: siteDescription,
     locale: "es_CO",
     type: "website",
+    siteName: company.name,
   },
-};
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: company.legalName,
-  image: "https://solucionesensobres.com",
-  telephone: `+${company.phoneE164}`,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: company.addressLine,
-    addressLocality: company.city,
-    addressCountry: "CO",
-  },
-  url: "https://solucionesensobres.com",
-  sameAs: [company.facebook, company.instagram],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="es" className={`${sourceSans.variable} ${sourceSerif.variable} h-full antialiased`}>
+    <html lang="es-CO" className={`${sourceSans.variable} ${sourceSerif.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-white text-[#1a1a1a]">
         <a
           href="#contenido"
@@ -68,7 +56,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </main>
         <SiteFooter />
         <WhatsappFab />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <CookieConsent />
+        <Analytics />
+        <JsonLd data={businessJsonLd()} />
       </body>
     </html>
   );

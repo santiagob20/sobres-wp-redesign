@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
 import { ProductArt } from "@/components/product-art";
 import { WhatsappButton } from "@/components/whatsapp-button";
+import { pageMetadata, productJsonLd } from "@/lib/seo";
 import { getProduct, products } from "@/lib/site";
+
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -17,8 +21,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const product = getProduct(slug);
-  if (!product) return { title: "Producto" };
-  return { title: product.name, description: product.summary };
+  if (!product) return { title: "Producto", robots: { index: false, follow: false } };
+  return pageMetadata({
+    title: product.name,
+    description: `${product.summary} Fabricado en Bogotá por SOBRYPAL, con entrega en Colombia.`,
+    path: `/productos/${product.slug}`,
+  });
 }
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -30,6 +38,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   return (
     <>
+      <JsonLd data={productJsonLd(product)} />
       <PageHero compact eyebrow="Producto" title={product.name} lede={product.summary} />
       <section className="bg-white py-14">
         <div className="mx-auto grid max-w-[1280px] items-start gap-10 px-6 md:grid-cols-[0.9fr_1.1fr] md:px-14">

@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
+import { pageMetadata } from "@/lib/seo";
 import { quoteWhatsapp, reasons } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Servicios",
+export const metadata = pageMetadata({
+  title: "Fabricación de sobres",
   description:
-    "Fabricación de sobres con atención directa de taller, impresión bajo demanda, muestras de aprobación y entrega en Bogotá.",
-};
+    "Taller de sobres en Bogotá con atención directa, impresión bajo demanda y muestras de aprobación. Fabricamos para clientes en toda Colombia.",
+  path: "/servicios",
+});
 
 const steps = [
   {
@@ -23,7 +24,7 @@ const steps = [
   },
   {
     title: "Producimos y entregamos",
-    text: "El taller está en Bogotá. La fecha se acuerda con el volumen y el acabado.",
+    text: "El taller está en Bogotá y despachamos a otras ciudades de Colombia. La fecha se acuerda con el volumen, el acabado y el destino.",
   },
 ];
 

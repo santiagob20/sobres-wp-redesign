@@ -1,12 +1,14 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { WhatsappButton } from "@/components/whatsapp-button";
+import { pageMetadata } from "@/lib/seo";
 import { company, quoteWhatsapp } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Contacto",
-  description: "Taller SOBRYPAL en la Carrera 57 # 70c-32, Bogotá. WhatsApp 318 365 9759.",
-};
+export const metadata = pageMetadata({
+  title: "Contacto del taller en Bogotá",
+  description:
+    "Taller SOBRYPAL en la Carrera 57 # 70c-32, Bogotá. Fabricamos sobres para clientes en toda Colombia. WhatsApp 318 365 9759.",
+  path: "/contacto",
+});
 
 export default function ContactPage() {
   const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(company.mapsQuery)}&z=16&output=embed`;
@@ -16,7 +18,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contacto"
         title="El taller está en Bogotá"
-        lede="Escríbenos por WhatsApp para cotizar, pedir una muestra o confirmar una entrega."
+        lede="Fabricamos en Bogotá y atendemos pedidos en toda Colombia. Escríbenos por WhatsApp para cotizar, pedir una muestra o confirmar una entrega."
       />
       <section className="bg-white py-14">
         <div className="mx-auto grid max-w-[1280px] gap-10 px-6 md:grid-cols-2 md:px-14">

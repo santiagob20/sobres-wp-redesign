@@ -1,8 +1,20 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Hero } from "@/components/hero";
 import { ProductArt } from "@/components/product-art";
 import { TrustBar } from "@/components/trust-bar";
+import { pageMetadata } from "@/lib/seo";
 import { featuredProducts, reasons, stats } from "@/lib/site";
+
+export const metadata: Metadata = {
+  ...pageMetadata({
+    title: "SOBRYPAL · Fabricante de sobres en Bogotá",
+    description:
+      "SOBRYPAL fabrica sobres de distintos tamaños en su taller de Bogotá y atiende pedidos en toda Colombia. Diezmo, correspondencia, e-commerce, centros médicos y eventos.",
+    path: "/",
+  }),
+  title: { absolute: "SOBRYPAL · Fabricante de sobres en Bogotá" },
+};
 
 export default function HomePage() {
   return (
@@ -16,8 +28,8 @@ export default function HomePage() {
             <span className="text-brand">hacemos?</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-[#3c4650]">
-            Fabricamos el sobre según el uso: papel, color, medida e impresión. Elige una línea o cuéntanos
-            el proyecto.
+            Fabricamos sobres de distintos tamaños en Bogotá y atendemos pedidos en toda Colombia. El papel,
+            el color, la medida y la impresión salen del uso. Elige una línea o cuéntanos el proyecto.
           </p>
           <ul className="mt-12 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
             {featuredProducts.map((product) => (

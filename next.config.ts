@@ -1,17 +1,13 @@
 import type { NextConfig } from "next";
-import { quoteWhatsapp } from "./lib/site";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH?.replace(/\/$/, "") || "";
 
 const nextConfig: NextConfig = {
+  output: "export",
+  trailingSlash: true,
+  ...(basePath ? { basePath } : {}),
+  images: { unoptimized: true },
   allowedDevOrigins: ["127.0.0.1"],
-  async redirects() {
-    return [
-      {
-        source: "/cotiza",
-        destination: quoteWhatsapp,
-        permanent: false,
-      },
-    ];
-  },
   turbopack: {
     rules: {
       "*.css": {
