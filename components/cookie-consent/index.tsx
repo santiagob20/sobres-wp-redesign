@@ -61,33 +61,33 @@ export function CookieConsent() {
       ref={bannerRef}
       role="region"
       aria-labelledby={titleId}
-      className="fixed inset-x-0 bottom-0 z-40 border-t border-[#d5dee6] bg-white pb-[max(0.75rem,env(safe-area-inset-bottom))] shadow-[0_-8px_30px_rgba(0,0,0,0.08)]"
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-[#d5dee6] bg-white pb-[max(0.5rem,env(safe-area-inset-bottom))] shadow-[0_-8px_30px_rgba(0,0,0,0.08)] md:pb-[max(0.75rem,env(safe-area-inset-bottom))]"
     >
-      <div className="mx-auto flex max-w-[1280px] flex-col gap-4 px-6 py-4 md:flex-row md:items-center md:justify-between md:px-12">
+      <div className="mx-auto flex max-w-[1280px] flex-col gap-2.5 px-4 py-2.5 md:flex-row md:items-center md:justify-between md:gap-4 md:px-12 md:py-4">
         <div className="max-w-3xl">
-          <p id={titleId} className="text-base font-semibold text-[#1a1a1a]">
+          <p id={titleId} className="text-sm font-semibold text-[#1a1a1a] md:text-base">
             Cookies de analítica
           </p>
-          <p className="mt-1 text-sm leading-relaxed text-[#3c4650] md:text-base">
+          <p className="mt-0.5 text-xs leading-snug text-[#3c4650] md:mt-1 md:text-base md:leading-relaxed">
             Esta página no pide ni guarda tus datos. Si aceptas, Firebase Analytics usa cookies para contar
-            visitas. Si rechazas, no se activan y el sitio sigue igual.
+            visitas. Si rechazas, no se activan y el sitio sigue igual.{" "}
+            <Link href="/politica-de-privacidad" className="text-brand underline-offset-4 hover:underline">
+              Política de privacidad
+            </Link>
           </p>
-          <Link href="/politica-de-privacidad" className="mt-1 inline-block text-sm text-brand underline-offset-4 hover:underline">
-            Política de privacidad
-          </Link>
         </div>
-        <div className="flex shrink-0 gap-3">
+        <div className="flex shrink-0 gap-2 md:gap-3">
           <button
             type="button"
             onClick={() => choose("rejected")}
-            className="inline-flex h-11 items-center rounded-md border border-[#c5ced6] bg-white px-4 text-base font-semibold text-[#1a1a1a] hover:bg-[#f4f7f9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+            className="inline-flex h-9 items-center rounded-md border border-[#c5ced6] bg-white px-3 text-sm font-semibold text-[#1a1a1a] hover:bg-[#f4f7f9] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand md:h-11 md:px-4 md:text-base"
           >
             Rechazar
           </button>
           <button
             type="button"
             onClick={() => choose("accepted")}
-            className="inline-flex h-11 items-center rounded-md bg-brand px-4 text-base font-semibold text-white hover:bg-brand-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+            className="inline-flex h-9 items-center rounded-md bg-brand px-3 text-sm font-semibold text-white hover:bg-brand-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand md:h-11 md:px-4 md:text-base"
           >
             Aceptar
           </button>
