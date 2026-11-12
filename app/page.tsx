@@ -29,8 +29,9 @@ export default function HomePage() {
             <span className="text-brand">hacemos?</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-[#3c4650]">
-            Fabricamos sobres de distintos tamaños en Bogotá y atendemos pedidos en toda Colombia. El papel,
-            el color, la medida y la impresión salen del uso. Elige una línea o cuéntanos el proyecto.
+            Fabricamos sobres a la medida y despachamos a toda Colombia. El papel, el color, el formato, la
+            impresión y el acabado se definen según el uso que le vayas a dar. Elige una línea o cuéntanos tu
+            proyecto.
           </p>
           <ul className="mt-8 grid grid-cols-2 gap-3 md:mt-12 md:gap-7 lg:grid-cols-3">
             {featuredProducts.map((product) => (
@@ -106,7 +107,10 @@ export default function HomePage() {
             })}
           </ul>
           <p className="mt-8 text-center">
-            <Link href="/servicios" className="text-lg font-semibold text-brand hover:underline">
+            <Link
+              href="/servicios"
+              className="inline-flex h-12 items-center rounded-full border border-brand px-8 text-lg font-semibold text-brand hover:bg-brand hover:text-white"
+            >
               Cómo trabajamos un proyecto
             </Link>
           </p>

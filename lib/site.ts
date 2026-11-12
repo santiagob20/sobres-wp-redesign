@@ -61,11 +61,9 @@ export const products: Product[] = [
     homeLabel: "Sobres para diezmo",
     featured: true,
     art: "diezmo",
-    summary:
-      "Formato pensado para iglesias y comunidades que recogen diezmos y ofrendas con orden.",
+    summary: "Formato pensado para iglesias y comunidades que recogen diezmos y ofrendas.",
     paragraphs: [
-      "Fabricamos sobres para diezmo en el papel y la medida que usa tu comunidad. Se pueden imprimir con el nombre de la iglesia, una fecha, un versículo corto o el espacio para el nombre de quien entrega.",
-      "El cierre y el gramaje se definen según si el sobre se entrega en la mano, se guarda en archivo o viaja con la ofrenda.",
+      "Fabricamos sobres para diezmo en el papel y la medida que usa tu comunidad. Adaptamos la impresión a 1 tinta o full color según el diseño y los acabados que requieran.",
     ],
     uses: ["Iglesias", "Retiros y eventos", "Ofrendas especiales"],
   },
@@ -78,7 +76,7 @@ export const products: Product[] = [
     summary:
       "Color en el papel para que la pieza se distinga antes de abrirla.",
     paragraphs: [
-      "Trabajamos sobres de color para campañas, invitaciones y correspondencia de marca. El color puede ir en el papel, en la impresión o en los dos.",
+      "Desarrollamos sobres de color para campañas, invitaciones y correspondencia de marca. El color se define según tus necesidades: Directo del papel, mediante impresión o combinando ambas opciones.",
       "Si necesitas una referencia exacta, cuéntanos el uso y te proponemos el papel más cercano dentro de lo que importamos.",
     ],
     uses: ["Campañas", "Invitaciones", "Correspondencia de marca"],
@@ -90,10 +88,10 @@ export const products: Product[] = [
     featured: true,
     art: "eventos",
     summary:
-      "Invitaciones, pases y kits que salen con el acabado del evento, no con un sobre genérico.",
+      "Invitaciones, boletas y kits que salen con el acabado del evento, no con un sobre genérico.",
     paragraphs: [
-      "Un evento pide una medida, un papel y una impresión que acompañen lo que va adentro: tarjeta, boleta, programa o kit.",
-      "Podemos hacer una muestra antes de producir el lote, para que apruebes color, texto y cierre.",
+      "Cada evento exige dimensiones, papeles y acabados únicos que acompañen lo que va adentro, ya sea una tarjeta, una boleta, un programa o un kit.",
+      "Desarrollamos una muestra física antes de la producción final para que valides el color, el diseño y el cierre de tus sobres.",
     ],
     uses: ["Invitaciones", "Bodas y grados", "Lanzamientos"],
   },
@@ -258,32 +256,32 @@ export const reasons = [
     title: "Atención personalizada",
     wide: true,
     image: atencionPersonalizada.src,
-    text: "Hablas con quien fabrica. Revisamos el uso, el papel y la cantidad antes de producir.",
+    text: "Trato directo con los especialistas que fabrican tu sobre para elegir el papel, formato y acabado ideal.",
   },
   {
     title: "Impresión y acabados bajo demanda",
     wide: true,
     image: impresionBajoDemanda.src,
-    text: "Imprimimos solo lo que el proyecto necesita: una tinta, un dato variable o la cara completa.",
+    text: "Impresión a una tinta, datos variables o full color en la cantidad exacta que necesites, sin desperdicios.",
   },
   {
-    title: "Productos personalizados",
+    title: "Producto personalizado",
     wide: false,
     image: productosPersonalizados.src,
-    text: "Medida, solapa, ventanilla y marca se definen para ese lote, no para un catálogo cerrado.",
+    text: "Medidas, troqueles, tipos de solapa y ventanas configurados exclusivamente para la necesidad de tu marca.",
   },
   {
-    title: "Entrega de muestras para aprobación",
+    title: "Entrega de muestra para aprobación",
     wide: false,
     image: entregaMuestras.src,
-    text: "Cuando el proyecto lo pide, produces la muestra y arrancamos el lote después de tu visto bueno.",
+    text: "Producimos una muestra de prueba para verificar color, papel y ajuste antes de dar luz verde a todo el pedido.",
   },
   {
     title: "Velocidad en tiempos de entrega",
     wide: false,
     image: velocidadEntrega.src,
     position: "center 70%",
-    text: "El taller está en Bogotá. Acordamos la fecha con el volumen y el acabado, y la cumplimos.",
+    text: "Pactamos fechas de entrega reales según las especificaciones de tu pedido y la cumplimos.",
   },
 ] as const;
 

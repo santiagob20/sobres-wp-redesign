@@ -11,20 +11,20 @@ export const metadata = pageMetadata({
 
 const steps = [
   {
-    title: "Cuéntanos el uso",
-    text: "Qué va adentro, a quién llega y si el sobre se entrega en mano, se archiva o viaja.",
+    title: "Cuéntanos tu necesidad",
+    text: "Dinos qué va dentro, a quién va dirigido y el tipo de uso (entrega personal, correo o archivo).",
   },
   {
-    title: "Definimos papel, medida e impresión",
-    text: "Partimos de las medidas básicas o armamos una medida. La impresión puede ser una tinta, un dato o la cara completa.",
+    title: "Definimos material, medida y acabado",
+    text: "Elegimos o creamos las dimensiones exactas de tu sobre, el tipo de papel y la técnica de impresión.",
   },
   {
-    title: "Muestra, si el proyecto la pide",
-    text: "Apruebas color, texto y cierre antes de fabricar el lote.",
+    title: "Muestra de aprobación",
+    text: "Si el proyecto lo requiere, validamos muestra física de color, texto y troquel antes del tiraje final.",
   },
   {
-    title: "Producimos y entregamos",
-    text: "El taller está en Bogotá y despachamos a otras ciudades de Colombia. La fecha se acuerda con el volumen, el acabado y el destino.",
+    title: "Fabricación y envío",
+    text: "Producimos y despachamos a cualquier ciudad del país en el tiempo pactado.",
   },
 ];
 
@@ -32,9 +32,10 @@ export default function ServicesPage() {
   return (
     <>
       <PageHero
+        compact
         eyebrow="Servicios"
-        title="El sobre se resuelve en el taller, con quien lo va a fabricar"
-        lede="No armamos un catálogo cerrado. Cada lote sale del uso: iglesia, oficina, tienda, clínica o evento."
+        title="Sobres a tu medida, sin catálogos cerrados."
+        lede="No trabajamos con medidas estándar. Cada formato se diseña y fabrica según el uso real que le vayas a dar: oficina, eventos, comercio o proyectos especiales."
       />
       <section className="bg-white py-16">
         <ol className="mx-auto grid max-w-[1280px] gap-6 px-6 md:grid-cols-4 md:px-14">
