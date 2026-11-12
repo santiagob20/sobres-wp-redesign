@@ -12,7 +12,7 @@ export function PageHero({
   compact?: boolean;
 }) {
   return (
-    <section className="scroll-mt-[5.75rem] bg-brand text-white md:scroll-mt-[12.375rem]">
+    <section className="scroll-mt-[5.75rem] bg-brand-gradient text-white md:scroll-mt-[12.375rem]">
       <div
         className={cn(
           "mx-auto max-w-[1280px] px-6 md:px-16",
