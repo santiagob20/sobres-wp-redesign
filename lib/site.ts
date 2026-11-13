@@ -1,6 +1,10 @@
 import atencionPersonalizada from "@/assets/atencion-personalizada.jpg";
 import entregaMuestras from "@/assets/entrega-muestras.jpg";
 import impresionBajoDemanda from "@/assets/impresion-bajo-demanda.jpg";
+import muestraColores from "@/assets/muestra-colores.jpg";
+import muestraEmpaque from "@/assets/muestra-empaque.jpg";
+import muestraForros from "@/assets/muestra-forros.jpg";
+import muestraImpresion from "@/assets/muestra-impresion.jpg";
 import productosPersonalizados from "@/assets/productos-personalizados.jpg";
 import velocidadEntrega from "@/assets/velocidad-entrega.jpg";
 
@@ -38,9 +42,6 @@ export type ArtKind =
   | "medico"
   | "manila"
   | "eco"
-  | "radio"
-  | "cuadrado"
-  | "ventanilla"
   | "burbuja";
 
 export type Product = {
@@ -52,6 +53,8 @@ export type Product = {
   summary: string;
   paragraphs: string[];
   uses: string[];
+  image?: string;
+  imageAlt?: string;
 };
 
 export const products: Product[] = [
@@ -66,6 +69,8 @@ export const products: Product[] = [
       "Fabricamos sobres para diezmo en el papel y la medida que usa tu comunidad. Adaptamos la impresión a 1 tinta o full color según el diseño y los acabados que requieran.",
     ],
     uses: ["Iglesias", "Retiros y eventos", "Ofrendas especiales"],
+    image: muestraImpresion.src,
+    imageAlt: "Sobres impresos a color para ofrendas, campañas y aniversarios",
   },
   {
     slug: "sobres-de-colores",
@@ -80,6 +85,8 @@ export const products: Product[] = [
       "Si necesitas una referencia exacta, cuéntanos el uso y te proponemos el papel más cercano dentro de lo que importamos.",
     ],
     uses: ["Campañas", "Invitaciones", "Correspondencia de marca"],
+    image: muestraColores.src,
+    imageAlt: "Abanico de sobres de colores junto a una carta de muestras de papel",
   },
   {
     slug: "sobres-para-eventos",
@@ -90,10 +97,12 @@ export const products: Product[] = [
     summary:
       "Invitaciones, boletas y kits que salen con el acabado del evento, no con un sobre genérico.",
     paragraphs: [
-      "Cada evento exige dimensiones, papeles y acabados únicos que acompañen lo que va adentro, ya sea una tarjeta, una boleta, un programa o un kit.",
+      "Cada evento exige dimensiones, papeles y acabados únicos que acompañen lo que va adentro, ya sea una tarjeta, una boleta, un programa o un kit. Si la pieza es cuadrada, el sobre también lo es.",
       "Desarrollamos una muestra física antes de la producción final para que valides el color, el diseño y el cierre de tus sobres.",
     ],
     uses: ["Invitaciones", "Bodas y grados", "Lanzamientos"],
+    image: muestraForros.src,
+    imageAlt: "Tres sobres abiertos con forro floral, monograma y candelabros",
   },
   {
     slug: "sobres-para-correspondencia",
@@ -116,12 +125,14 @@ export const products: Product[] = [
     featured: true,
     art: "ecommerce",
     summary:
-      "Empaque de papel para tiendas virtuales, con espacio para la marca y los datos del envío.",
+      "Empaque de papel resistente para tiendas virtuales, fabricado a la medida de tus productos y tu marca.",
     paragraphs: [
-      "Si vendes en línea y el producto viaja en sobre, lo fabricamos con el tamaño del pedido, la resistencia del trayecto y la impresión de tu marca.",
-      "Sirve para prendas, papelería, accesorios y pedidos que no necesitan una caja.",
+      "Si tu tienda despacha en sobres, diseñamos y fabricamos el empaque según el tamaño de tu producto, la resistencia para el transporte y la identidad de tu marca.",
+      "Perfecto para prendas, artículos de papelería, accesorios y envíos ligeros que no requieren caja.",
     ],
     uses: ["Tiendas virtuales", "Envíos ligeros", "Empaque con marca"],
+    image: muestraEmpaque.src,
+    imageAlt: "Bolsas impresas, una blanca con carita y una de papel kraft con ilustración",
   },
   {
     slug: "sobres-para-centros-medicos",
@@ -130,10 +141,10 @@ export const products: Product[] = [
     featured: true,
     art: "medico",
     summary:
-      "Para historias, resultados y documentos que deben ir identificados y protegidos.",
+      "Formatos a la medida para historias clínicas, resultados y exámenes que deben ir identificados y protegidos.",
     paragraphs: [
-      "Clínicas, laboratorios y consultorios usan el sobre para entregar resultados, mover documentos entre sedes o guardar una historia.",
-      "Definimos el papel, la solapa y los datos impresos según el protocolo del centro. También fabricamos sobres para radiografía.",
+      "Diseñamos soluciones para clínicas, laboratorios y consultorios que necesitan entregar resultados, movilizar documentación entre sedes o resguardar historias médicas.",
+      "Ajustamos la medida, el gramaje del papel, el cierre, la impresión y los acabados de datos según los requerimientos de tu centro. Contamos además con fabricación a medida para radiografías.",
     ],
     uses: ["Laboratorios", "Consultorios", "Entrega de resultados"],
   },
@@ -143,9 +154,10 @@ export const products: Product[] = [
     homeLabel: "Sobres de manila",
     featured: false,
     art: "manila",
-    summary: "Papel manila resistente para archivo y envíos que se manipulan seguido.",
+    summary: "Papel manila resistente para archivo y envíos de uso constante.",
     paragraphs: [
-      "El manila aguanta el roce del archivo y el trayecto de un documento que cambia de manos. Lo fabricamos en medidas básicas y especiales.",
+      "El manila aguanta el roce del archivo y el movimiento continuo de documentos que cambian de manos.",
+      "Lo fabricamos en medidas estándar o a la medida exacta de tus carpetas y expedientes. Podemos personalizarlos con impresión a una tinta y definir el tipo de cierre según el uso.",
     ],
     uses: ["Archivo", "Documentos", "Envíos internos"],
   },
@@ -156,47 +168,12 @@ export const products: Product[] = [
     featured: false,
     art: "eco",
     summary:
-      "Una opción de papel para quien quiere bajar el impacto del empaque sin soltar la resistencia.",
+      "Alternativas de papel ecológico para disminuir el impacto ambiental sin sacrificar la resistencia del empaque.",
     paragraphs: [
-      "Te proponemos papeles de menor impacto según el uso: correspondencia, empaque ligero o una pieza de marca. Cuéntanos el volumen y el destino.",
+      "Seleccionamos el papel ecológico ideal según la utilidad de tu proyecto (correspondencia, empaque ligero o papelería corporativa).",
+      "Cuéntanos los detalles del volumen y el destino.",
     ],
     uses: ["Marcas con política ambiental", "Correspondencia", "Empaque ligero"],
-  },
-  {
-    slug: "sobres-para-radiografia",
-    name: "Sobres para radiografía",
-    homeLabel: "Sobres para radiografía",
-    featured: false,
-    art: "radio",
-    summary: "Protegen placas y estudios en el traslado y en la entrega al paciente.",
-    paragraphs: [
-      "El formato cubre la placa y deja espacio para identificar el estudio. Lo producimos para centros de imagen y clínicas que entregan el resultado en físico.",
-    ],
-    uses: ["Centros de imagen", "Clínicas", "Entrega al paciente"],
-  },
-  {
-    slug: "sobres-cuadrados",
-    name: "Sobres cuadrados",
-    homeLabel: "Sobres cuadrados",
-    featured: false,
-    art: "cuadrado",
-    summary: "Para invitaciones y piezas que no entran en un sobre tradicional.",
-    paragraphs: [
-      "El formato cuadrado cambia la presencia de una invitación o de una pieza editorial. Definimos el lado, el papel y si lleva impresión en la cara o en la solapa.",
-    ],
-    uses: ["Invitaciones", "Papelería editorial", "Kits"],
-  },
-  {
-    slug: "sobres-con-ventanilla",
-    name: "Sobres con ventanilla",
-    homeLabel: "Sobres con ventanilla",
-    featured: false,
-    art: "ventanilla",
-    summary: "La dirección se lee sin abrir el sobre.",
-    paragraphs: [
-      "Útiles cuando el documento ya trae el nombre y la dirección impresos: facturas, extractos y correspondencia masiva. La ventanilla se ubica donde queda el dato.",
-    ],
-    uses: ["Facturación", "Correspondencia masiva", "Oficinas"],
   },
   {
     slug: "sobres-con-burbuja",
@@ -206,7 +183,7 @@ export const products: Product[] = [
     art: "burbuja",
     summary: "Acolchado interior para productos que no deben viajar sueltos.",
     paragraphs: [
-      "El sobre con burbuja protege piezas frágiles o que se rayan. Hay varios tamaños y, si el producto pide otra medida, la revisamos contigo.",
+      "El sobre con burbuja protege piezas frágiles o propensas a rayarse. Contamos con varios tamaños y, si tu producto requiere otra medida, lo revisamos contigo.",
     ],
     uses: ["Productos frágiles", "Accesorios", "Envíos"],
   },

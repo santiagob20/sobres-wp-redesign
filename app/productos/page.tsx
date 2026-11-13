@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
-import { ProductArt } from "@/components/product-art";
+import { ProductMedia } from "@/components/product-media";
 import { pageMetadata } from "@/lib/seo";
 import { products, quoteWhatsapp, sizes } from "@/lib/site";
 
@@ -22,18 +22,21 @@ export default function ProductsPage() {
       <section className="bg-paper py-14 md:py-16">
         <ul className="mx-auto grid max-w-[1280px] grid-cols-2 gap-3 px-4 sm:gap-7 sm:px-6 lg:grid-cols-3 md:px-14">
           {products.map((product) => (
-            <li key={product.slug}>
+            <li key={product.slug} className="flex h-full flex-col bg-white">
+              <ProductMedia
+                art={product.art}
+                image={product.image}
+                imageAlt={product.imageAlt}
+                label={product.name}
+                href={`/productos/${product.slug}`}
+                className="aspect-[368/240] bg-[#f1f1f1]"
+              />
               <Link
                 href={`/productos/${product.slug}`}
-                className="flex h-full flex-col bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
+                className="flex flex-1 flex-col gap-1 px-3 py-3 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand sm:gap-2 sm:px-5 sm:py-5"
               >
-                <div className="aspect-[368/240] bg-[#f1f1f1]">
-                  <ProductArt kind={product.art} />
-                </div>
-                <div className="flex flex-1 flex-col gap-1 px-3 py-3 sm:gap-2 sm:px-5 sm:py-5">
-                  <h2 className="text-base leading-tight text-brand sm:text-2xl">{product.name}</h2>
-                  <p className="text-xs leading-snug text-[#3c4650] sm:text-base">{product.summary}</p>
-                </div>
+                <h2 className="text-base leading-tight text-brand sm:text-2xl">{product.name}</h2>
+                <p className="text-xs leading-snug text-[#3c4650] sm:text-base">{product.summary}</p>
               </Link>
             </li>
           ))}
@@ -51,7 +54,7 @@ export default function ProductsPage() {
             <article className="border border-[#e4e4e4] p-6">
               <h3 className="text-xl font-semibold text-brand">Personalizadas</h3>
               <p className="mt-3 text-[#3c4650]">
-                Sobres cuadrados, para radiografía, para diezmo y cualquier formato que el contenido pida.
+                Diezmo, radiografía, formatos cuadrados y cualquier medida que el contenido pida.
               </p>
               <a
                 href={quoteWhatsapp}

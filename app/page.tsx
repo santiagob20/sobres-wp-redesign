@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CountUp } from "@/components/count-up";
 import { Hero } from "@/components/hero";
-import { ProductArt } from "@/components/product-art";
+import { ProductMedia } from "@/components/product-media";
 import { TrustBar } from "@/components/trust-bar";
 import { pageMetadata } from "@/lib/seo";
 import { featuredProducts, reasons, stats } from "@/lib/site";
@@ -35,25 +35,30 @@ export default function HomePage() {
           </p>
           <ul className="mt-8 grid grid-cols-2 gap-3 md:mt-12 md:gap-7 lg:grid-cols-3">
             {featuredProducts.map((product) => (
-              <li key={product.slug}>
+              <li key={product.slug} className="flex h-full flex-col bg-[#f1f1f1]">
+                <ProductMedia
+                  art={product.art}
+                  image={product.image}
+                  imageAlt={product.imageAlt}
+                  label={product.homeLabel}
+                  href={`/productos/${product.slug}`}
+                  className="aspect-[368/285]"
+                  zoomOnHover
+                />
                 <Link
                   href={`/productos/${product.slug}`}
-                  className="group flex h-full flex-col bg-[#f1f1f1] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
+                  className="flex flex-1 items-center justify-center bg-label px-2 py-2.5 text-center text-sm leading-tight text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand sm:min-h-[92px] sm:px-4 sm:py-5 sm:text-[1.35rem] md:min-h-[112px] md:text-[1.7rem]"
                 >
-                  <div className="aspect-[368/285] overflow-hidden">
-                    <div className="h-full transition duration-300 group-hover:scale-[1.03]">
-                      <ProductArt kind={product.art} />
-                    </div>
-                  </div>
-                  <div className="flex flex-1 items-center justify-center bg-label px-2 py-2.5 text-center text-sm leading-tight text-brand sm:min-h-[92px] sm:px-4 sm:py-5 sm:text-[1.35rem] md:min-h-[112px] md:text-[1.7rem]">
-                    {product.homeLabel}
-                  </div>
+                  {product.homeLabel}
                 </Link>
               </li>
             ))}
           </ul>
           <p className="mt-8 text-center">
-            <Link href="/productos" className="text-lg font-semibold text-brand hover:underline">
+            <Link
+              href="/productos"
+              className="inline-flex h-12 items-center rounded-full border-2 border-brand px-8 text-lg font-semibold text-brand hover:bg-brand hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
+            >
               Ver todo el catálogo
             </Link>
           </p>

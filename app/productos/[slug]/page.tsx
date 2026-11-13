@@ -42,8 +42,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <PageHero compact eyebrow="Producto" title={product.name} lede={product.summary} />
       <section className="bg-white py-14">
         <div className="mx-auto grid max-w-[1280px] items-start gap-10 px-6 md:grid-cols-[0.9fr_1.1fr] md:px-14">
-          <div className="overflow-hidden bg-[#f1f1f1]">
-            <ProductArt kind={product.art} />
+          <div className={product.image ? "bg-white" : "overflow-hidden bg-[#f1f1f1]"}>
+            {product.image ? (
+              <img src={product.image} alt={product.imageAlt ?? product.name} className="w-full" />
+            ) : (
+              <ProductArt kind={product.art} />
+            )}
           </div>
           <div>
             {product.paragraphs.map((paragraph) => (

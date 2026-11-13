@@ -69,7 +69,7 @@ export function ProductArt({ kind }: { kind: ArtKind }) {
     );
   }
 
-  if (kind === "correspondencia" || kind === "ventanilla") {
+  if (kind === "correspondencia") {
     return (
       <Sheet>
         <Envelope x={74} y={68} w={220} h={140} paper="#ffffff" flap="#eef3f8" />
@@ -113,24 +113,6 @@ export function ProductArt({ kind }: { kind: ArtKind }) {
           d="M196 168c18-22 18-40 6-48-16 2-28 18-30 36 14 2 20 8 24 12z"
           fill="#3d7a45"
         />
-      </Sheet>
-    );
-  }
-
-  if (kind === "radio") {
-    return (
-      <Sheet>
-        <rect x="118" y="48" width="132" height="168" rx="4" fill="#d5dde3" stroke="#0163a7" strokeWidth="3" />
-        <rect x="132" y="64" width="104" height="104" fill="#eef2f5" stroke="#0163a7" strokeWidth="2" />
-        <path d="M148 188h72M148 198h48" stroke="#0163a7" strokeWidth="2" />
-      </Sheet>
-    );
-  }
-
-  if (kind === "cuadrado") {
-    return (
-      <Sheet>
-        <Envelope x={96} y={48} w={176} h={176} paper="#fffdf8" flap="#f3efe6" />
       </Sheet>
     );
   }
