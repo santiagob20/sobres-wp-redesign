@@ -90,7 +90,7 @@ export function ProductArt({ kind }: { kind: ArtKind }) {
 
   if (kind === "medico") {
     return (
-      <Sheet tint="#e7eef3">
+      <Sheet>
         <Envelope x={78} y={64} w={212} h={144} paper="#f7fbfe" flap="#d5e6f2" />
         <path d="M176 148h16v28h16v16h-16v16h-16v-16h-16v-16h16z" fill="#0163a7" />
       </Sheet>
@@ -107,7 +107,7 @@ export function ProductArt({ kind }: { kind: ArtKind }) {
 
   if (kind === "eco") {
     return (
-      <Sheet tint="#e7f0e4">
+      <Sheet>
         <Envelope x={78} y={66} w={210} h={142} paper="#f4f7f1" flap="#d7e4cf" />
         <path
           d="M196 168c18-22 18-40 6-48-16 2-28 18-30 36 14 2 20 8 24 12z"

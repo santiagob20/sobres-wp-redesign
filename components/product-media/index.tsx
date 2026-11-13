@@ -7,6 +7,7 @@ import { ProductArt } from "@/components/product-art";
 import type { ArtKind } from "@/lib/site";
 
 const TAP_PX = 8;
+const mediaFooter = "flex h-9 shrink-0 items-center justify-center bg-[#f1f1f1]";
 
 export function ProductMedia({
   art,
@@ -27,14 +28,17 @@ export function ProductMedia({
 }) {
   if (!image) {
     return (
-      <Link
-        href={href}
-        className={`group block overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${className}`}
-      >
-        <div className={zoomOnHover ? "h-full transition duration-300 group-hover:scale-[1.03]" : "h-full"}>
-          <ProductArt kind={art} />
-        </div>
-      </Link>
+      <div className="flex flex-col">
+        <Link
+          href={href}
+          className={`group block overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand ${className}`}
+        >
+          <div className={zoomOnHover ? "h-full transition duration-300 group-hover:scale-[1.03]" : "h-full"}>
+            <ProductArt kind={art} />
+          </div>
+        </Link>
+        <div className={mediaFooter} aria-hidden="true" />
+      </div>
     );
   }
 
@@ -129,44 +133,46 @@ function ProductCarousel({
   }
 
   return (
-    <div
-      ref={frame}
-      className={`relative touch-pan-y select-none ${className}`}
-      role="region"
-      aria-roledescription="carrusel"
-      aria-label={`Fotos de ${label}`}
-      onPointerDown={onPointerDown}
-      onPointerMove={onPointerMove}
-      onPointerUp={finish}
-      onPointerCancel={finish}
-      onClickCapture={(event) => {
-        if (!suppressClick.current) return;
-        event.preventDefault();
-        event.stopPropagation();
-        suppressClick.current = false;
-      }}
-    >
-      <Link
-        href={href}
-        className="absolute inset-0 block overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
+    <div className="flex flex-col">
+      <div
+        ref={frame}
+        className={`relative overflow-hidden touch-pan-y select-none ${className}`}
+        role="region"
+        aria-roledescription="carrusel"
+        aria-label={`Fotos de ${label}`}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={finish}
+        onPointerCancel={finish}
+        onClickCapture={(event) => {
+          if (!suppressClick.current) return;
+          event.preventDefault();
+          event.stopPropagation();
+          suppressClick.current = false;
+        }}
       >
-        <div
-          className="flex h-full motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out motion-reduce:transition-none"
-          style={{
-            transform: `translate3d(calc(${-index * 100}% + ${offset}px), 0, 0)`,
-            ...(dragging ? { transition: "none" } : {}),
-          }}
+        <Link
+          href={href}
+          className="absolute inset-0 block overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand"
         >
-          <div className="h-full w-full shrink-0" aria-hidden={index !== 0}>
-            <ProductArt kind={art} />
+          <div
+            className="flex h-full motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out motion-reduce:transition-none"
+            style={{
+              transform: `translate3d(calc(${-index * 100}% + ${offset}px), 0, 0)`,
+              ...(dragging ? { transition: "none" } : {}),
+            }}
+          >
+            <div className="h-full w-full shrink-0" aria-hidden={index !== 0}>
+              <ProductArt kind={art} />
+            </div>
+            <div className="flex h-full w-full shrink-0 items-center bg-white" aria-hidden={index !== 1}>
+              <img src={image} alt={imageAlt} draggable={false} className="h-full w-full object-contain" />
+            </div>
           </div>
-          <div className="flex h-full w-full shrink-0 items-center bg-white" aria-hidden={index !== 1}>
-            <img src={image} alt={imageAlt} draggable={false} className="h-full w-full object-contain" />
-          </div>
-        </div>
-      </Link>
-      <div className="absolute inset-x-0 bottom-2 z-10 flex justify-center">
-        <div className="flex items-center rounded-full bg-white/85 px-1 py-0.5">
+        </Link>
+      </div>
+      <div className={mediaFooter}>
+        <div className="flex items-center rounded-full bg-white px-1">
           {[0, 1].map((dot) => (
             <button
               key={dot}
@@ -174,7 +180,6 @@ function ProductCarousel({
               aria-label={dot === 0 ? `Ver ilustración de ${label}` : `Ver foto de ${label}`}
               aria-current={index === dot ? "true" : undefined}
               className="grid h-6 w-6 place-items-center"
-              onPointerDown={(event) => event.stopPropagation()}
               onClick={(event) => {
                 event.preventDefault();
                 event.stopPropagation();
