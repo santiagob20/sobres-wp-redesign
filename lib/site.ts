@@ -15,7 +15,7 @@ export const company = {
   phoneE164: "573183659759",
   whatsapp: "https://wa.me/573183659759",
   facebook: "https://web.facebook.com/sobrypalsi",
-  instagram: "https://www.instagram.com/sobrypal",
+  instagram: "https://www.instagram.com/sobresenpapel/",
   addressLine: "Carrera 57 # 70c - 32",
   city: "Bogotá",
   mapsQuery: "Carrera 57 #70c-32, Bogotá, Colombia",
