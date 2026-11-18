@@ -30,14 +30,26 @@ export default function ContactPage() {
               {company.city}
             </p>
             <WhatsappButton className="mt-6">WhatsApp {company.phoneDisplay}</WhatsappButton>
-            <ul className="mt-8 space-y-2 text-lg">
+            <ul className="mt-8 space-y-3 text-lg">
               <li>
-                <a href={company.facebook} className="hover:text-brand" target="_blank" rel="noreferrer">
+                <a
+                  href={company.facebook}
+                  className="inline-flex items-center gap-2.5 hover:text-brand"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FacebookIcon />
                   Facebook
                 </a>
               </li>
               <li>
-                <a href={company.instagram} className="hover:text-brand" target="_blank" rel="noreferrer">
+                <a
+                  href={company.instagram}
+                  className="inline-flex items-center gap-2.5 hover:text-brand"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <InstagramIcon />
                   Instagram
                 </a>
               </li>
@@ -60,5 +72,23 @@ export default function ContactPage() {
         </div>
       </section>
     </>
+  );
+}
+
+function FacebookIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="size-5 shrink-0" aria-hidden="true" fill="currentColor">
+      <path d="M14.5 8.5V6.8c0-.7.5-1 1.2-1H17V3h-2.2C12.2 3 11 4.4 11 6.6v1.9H9v2.8h2V21h3.5v-9.7h2.3l.4-2.8h-2.7z" />
+    </svg>
+  );
+}
+
+function InstagramIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="size-5 shrink-0" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8">
+      <rect x="4" y="4" width="16" height="16" rx="4" />
+      <circle cx="12" cy="12" r="3.5" />
+      <circle cx="17.2" cy="6.8" r="0.8" fill="currentColor" stroke="none" />
+    </svg>
   );
 }

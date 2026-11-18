@@ -1,4 +1,4 @@
-import type { FirebaseOptions } from "firebase/app";
+import { getApps, initializeApp, type FirebaseApp, type FirebaseOptions } from "firebase/app";
 
 export function firebaseWebConfig(): FirebaseOptions | null {
   const config = {
@@ -16,4 +16,10 @@ export function firebaseWebConfig(): FirebaseOptions | null {
   }
 
   return config;
+}
+
+export function getFirebaseApp(): FirebaseApp | null {
+  const config = firebaseWebConfig();
+  if (!config) return null;
+  return getApps()[0] ?? initializeApp(config);
 }
