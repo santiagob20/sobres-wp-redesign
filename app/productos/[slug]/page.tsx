@@ -35,11 +35,13 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   if (!product) notFound();
 
   const others = products.filter((item) => item.slug !== product.slug).slice(0, 3);
+  const lede = product.subtitle ?? product.summary;
+  const paragraphs = product.paragraphs.filter((paragraph) => paragraph !== lede);
 
   return (
     <>
       <JsonLd data={productJsonLd(product)} />
-      <PageHero compact eyebrow="Producto" title={product.name} lede={product.summary} />
+      <PageHero compact eyebrow="Producto" title={product.name} lede={lede} />
       <section className="bg-white py-14">
         <div className="mx-auto grid max-w-[1280px] items-start gap-10 px-6 md:grid-cols-[0.9fr_1.1fr] md:px-14">
           <div className={product.image ? "bg-white" : "overflow-hidden bg-[#f1f1f1]"}>
@@ -50,7 +52,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             )}
           </div>
           <div>
-            {product.paragraphs.map((paragraph) => (
+            {paragraphs.map((paragraph) => (
               <p key={paragraph} className="mt-4 text-lg leading-relaxed text-[#24303a] first:mt-0">
                 {paragraph}
               </p>

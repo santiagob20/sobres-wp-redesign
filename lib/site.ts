@@ -48,6 +48,7 @@ export type Product = {
   slug: string;
   name: string;
   homeLabel: string;
+  subtitle?: string;
   featured: boolean;
   art: ArtKind;
   summary: string;
@@ -64,9 +65,9 @@ export const products: Product[] = [
     homeLabel: "Sobres para diezmo",
     featured: true,
     art: "diezmo",
-    summary: "Formato pensado para iglesias y comunidades que recogen diezmos y ofrendas.",
+    summary: "Fabricamos sobres para ofrenda y diezmo con impresión y diseño incluido.",
     paragraphs: [
-      "Fabricamos sobres para diezmo en el papel y la medida que usa tu comunidad. Adaptamos la impresión a 1 tinta o full color según el diseño y los acabados que requieran.",
+      "Fabricamos sobres para ofrenda y diezmo con impresión y diseño incluido.",
     ],
     uses: ["Iglesias", "Retiros y eventos", "Ofrendas especiales"],
     image: muestraImpresion.src,
@@ -108,13 +109,14 @@ export const products: Product[] = [
     slug: "sobres-para-correspondencia",
     name: "Sobres para correspondencia",
     homeLabel: "Sobres para correspondencia",
+    subtitle:
+      "Sobres 20A, oficio, media carta para empaque de facturas, extractos y correspondencia entre otros.",
     featured: true,
     art: "correspondencia",
     summary:
-      "Carta, oficio y ventanilla para oficina, archivo y correo.",
+      "Sobres 20A, oficio, media carta para empaque de facturas, extractos y correspondencia entre otros.",
     paragraphs: [
-      "El sobre de uso diario: documentos, facturas y correspondencia. Hay medidas básicas y, si el contenido no cabe, fabricamos la medida.",
-      "La ventanilla evita reescribir la dirección cuando el documento ya la trae impresa.",
+      "Armado automatizado de sobres con ventanilla y línea rehumectable en la solapa. Servicio de pegue automatizado de sobres.",
     ],
     uses: ["Oficinas", "Facturación", "Archivo"],
   },
