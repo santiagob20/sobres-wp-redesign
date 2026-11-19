@@ -7,7 +7,7 @@ import { company } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "Política de privacidad",
   description:
-    "El sitio de SOBRYPAL no recoge datos personales. Las cookies, si las aceptas, solo miden visitas.",
+    "El sitio de SOBRYPAL no recoge datos personales. Las cookies, si las aceptas, miden visitas y las consultas que vienen de anuncios.",
   path: "/politica-de-privacidad",
 });
 
@@ -17,7 +17,7 @@ export default function PrivacyPage() {
       <PageHero
         eyebrow="Privacidad"
         title="Política de privacidad"
-        lede="Esta página no pide ni guarda tus datos. La cotización se abre en WhatsApp. Las cookies, si las aceptas, solo miden visitas."
+        lede="Esta página no pide ni guarda tus datos. La cotización se abre en WhatsApp. Las cookies, si las aceptas, miden visitas y las consultas que vienen de anuncios."
       />
       <article className="bg-white py-14">
         <div className="mx-auto max-w-3xl space-y-6 px-6 text-lg leading-relaxed text-[#24303a] md:px-0">
@@ -37,14 +37,16 @@ export default function PrivacyPage() {
             celular del taller, no en esta página. Si quieres que borremos ese chat, escríbenos al{" "}
             {company.phoneDisplay}.
           </p>
-          <h2 className="text-2xl font-bold text-[#1a1a1a]">Cookies de analítica</h2>
+          <h2 className="text-2xl font-bold text-[#1a1a1a]">Cookies</h2>
           <p>
-            Si aceptas, el sitio carga Firebase Analytics, de Google, y guarda cookies para contar visitas:
-            páginas vistas, tipo de dispositivo y una ubicación aproximada. Esas cookies no llevan tu nombre,
-            tu teléfono ni el texto de una cotización. No las usamos para anuncios.
+            Si aceptas, el sitio carga la etiqueta de Google. Analytics cuenta visitas: páginas vistas, tipo
+            de dispositivo y una ubicación aproximada. Google Ads registra una conversión cuando abres
+            WhatsApp para cotizar, y así se puede saber si un anuncio trajo esa consulta. Esas cookies no
+            llevan tu nombre, tu teléfono ni el texto del mensaje.
           </p>
           <p>
-            Si rechazas, Firebase no se carga y el sitio se ve igual. Puedes cambiar de idea cuando quieras.
+            Si rechazas, esas mediciones quedan desactivadas y el sitio se ve igual. Puedes cambiar de idea
+            cuando quieras.
           </p>
           <CookieSettingsButton />
           <p>

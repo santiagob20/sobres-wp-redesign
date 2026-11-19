@@ -3,6 +3,7 @@
 import Script from "next/script";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { GOOGLE_ADS_ID, GOOGLE_TAG_ID, isWhatsappUrl, markGoogleAdsReady, trackPurchaseConversion } from "@/lib/ads";
 import { CONSENT_EVENT, readConsent } from "@/lib/consent";
 
 const MEASUREMENT_ID = process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "G-43N1P9VMTK";
@@ -49,6 +50,30 @@ export function Analytics() {
     }
   }, [pathname]);
 
+  useEffect(() => {
+    markGoogleAdsReady();
+    const started = Date.now();
+    const id = window.setInterval(() => {
+      markGoogleAdsReady();
+      if (window.__sobrypalGoogleTagReady || Date.now() - started > 10000) {
+        window.clearInterval(id);
+      }
+    }, 50);
+    return () => window.clearInterval(id);
+  }, []);
+
+  useEffect(() => {
+    const onClick = (event: MouseEvent) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const link = target.closest("a");
+      if (!link || !isWhatsappUrl(link.href)) return;
+      trackPurchaseConversion();
+    };
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, []);
+
   if (!MEASUREMENT_ID) return null;
 
   return (
@@ -57,10 +82,11 @@ export function Analytics() {
         src={`https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`}
         strategy="afterInteractive"
       />
-      <Script id="google-analytics-init" strategy="afterInteractive">
+      <Script id="google-analytics-init" strategy="afterInteractive" onReady={markGoogleAdsReady}>
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
           gtag('js', new Date());
           gtag('consent', 'default', {
             'analytics_storage': 'granted',
@@ -72,6 +98,9 @@ export function Analytics() {
             page_path: window.location.pathname,
             send_page_view: true
           });
+          gtag('config', '${GOOGLE_TAG_ID}');
+          gtag('config', '${GOOGLE_ADS_ID}');
+          window.__sobrypalGoogleTagReady = true;
         `}
       </Script>
     </>

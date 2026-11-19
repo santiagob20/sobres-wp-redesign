@@ -66,11 +66,11 @@ export function CookieConsent() {
       <div className="mx-auto flex max-w-[1280px] flex-col gap-2.5 px-4 py-2.5 md:flex-row md:items-center md:justify-between md:gap-4 md:px-12 md:py-4">
         <div className="max-w-3xl">
           <p id={titleId} className="text-sm font-semibold text-[#1a1a1a] md:text-base">
-            Cookies de analítica
+            Cookies
           </p>
           <p className="mt-0.5 text-xs leading-snug text-[#3c4650] md:mt-1 md:text-base md:leading-relaxed">
-            Esta página no pide ni guarda tus datos. Si aceptas, Firebase Analytics usa cookies para contar
-            visitas. Si rechazas, no se activan y el sitio sigue igual.{" "}
+            Esta página no pide ni guarda tus datos. Si aceptas, Google cuenta las visitas y registra cuando
+            abres WhatsApp para cotizar. Si rechazas, esas cookies no se usan y el sitio sigue igual.{" "}
             <Link href="/politica-de-privacidad" className="text-brand underline-offset-4 hover:underline">
               Política de privacidad
             </Link>
