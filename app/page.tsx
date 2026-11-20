@@ -47,19 +47,9 @@ export default function HomePage() {
                 />
                 <Link
                   href={`/productos/${product.slug}`}
-                  className="flex flex-1 flex-col items-center justify-center bg-label px-3 py-3 text-center focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand sm:min-h-[92px] sm:px-4 sm:py-5 md:min-h-[112px]"
+                  className="flex flex-1 items-center justify-center bg-label px-2 py-2.5 text-center text-sm leading-tight text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand sm:min-h-[92px] sm:px-4 sm:py-5 sm:text-[1.35rem] md:min-h-[112px] md:text-[1.7rem]"
                 >
-                  <span className="text-sm leading-tight text-brand sm:text-[1.35rem] md:text-[1.7rem]">
-                    {product.homeLabel}
-                  </span>
-                  {product.subtitle ? (
-                    <span className="mt-1 text-xs leading-snug text-[#24303a] sm:text-sm">{product.subtitle}</span>
-                  ) : null}
-                  {product.subtitle && product.paragraphs[0] ? (
-                    <span className="mt-1 text-xs leading-snug text-[#3c4650] sm:text-sm">
-                      {product.paragraphs[0]}
-                    </span>
-                  ) : null}
+                  {product.homeLabel}
                 </Link>
               </li>
             ))}
