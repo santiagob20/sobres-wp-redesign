@@ -31,6 +31,9 @@ export const metadata: Metadata = {
   description: siteDescription,
   applicationName: company.name,
   robots: { index: true, follow: true },
+  verification: {
+    google: "3GNPF0h1Q8__ZzQn4icHlA6UJ_gb1PiHyXm17ei-tGI",
+  },
   openGraph: {
     title: "Sobres de papel a la medida en Bogotá · SOBRYPAL",
     description: siteDescription,
