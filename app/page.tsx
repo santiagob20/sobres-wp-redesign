@@ -9,12 +9,12 @@ import { featuredProducts, reasons, stats } from "@/lib/site";
 
 export const metadata: Metadata = {
   ...pageMetadata({
-    title: "SOBRYPAL · Fabricante de sobres en Bogotá",
+    title: "Sobres de papel a la medida en Bogotá · SOBRYPAL",
     description:
-      "SOBRYPAL fabrica sobres de distintos tamaños en su taller de Bogotá y atiende pedidos en toda Colombia. Diezmo, correspondencia, e-commerce, centros médicos y eventos.",
+      "SOBRYPAL fabrica sobres de papel a la medida en su taller de Bogotá y despacha a toda Colombia. Sobres para diezmo, correspondencia, e-commerce, centros médicos y eventos.",
     path: "/",
   }),
-  title: { absolute: "SOBRYPAL · Fabricante de sobres en Bogotá" },
+  title: { absolute: "Sobres de papel a la medida en Bogotá · SOBRYPAL" },
 };
 
 export default function HomePage() {
@@ -29,7 +29,7 @@ export default function HomePage() {
             <span className="text-brand">hacemos?</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-[#3c4650]">
-            Fabricamos sobres a la medida y despachamos a toda Colombia. El papel, el color, el formato, la
+            Fabricamos sobres de papel a la medida y despachamos a toda Colombia. El papel, el color, el formato, la
             impresión y el acabado se definen según el uso que le vayas a dar. Elige una línea o cuéntanos tu
             proyecto.
           </p>

@@ -25,14 +25,14 @@ const sourceSerif = Source_Serif_4({
 export const metadata: Metadata = {
   metadataBase: new URL("https://solucionesensobres.com"),
   title: {
-    default: "SOBRYPAL · Fabricante de sobres en Bogotá",
+    default: "Sobres de papel a la medida en Bogotá · SOBRYPAL",
     template: "%s · SOBRYPAL",
   },
   description: siteDescription,
   applicationName: company.name,
   robots: { index: true, follow: true },
   openGraph: {
-    title: "SOBRYPAL · Fabricante de sobres en Bogotá",
+    title: "Sobres de papel a la medida en Bogotá · SOBRYPAL",
     description: siteDescription,
     locale: "es_CO",
     type: "website",

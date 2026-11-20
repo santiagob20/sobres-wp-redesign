@@ -5,9 +5,9 @@ import { pageMetadata } from "@/lib/seo";
 import { products, quoteWhatsapp, sizes } from "@/lib/site";
 
 export const metadata = pageMetadata({
-  title: "Sobres a la medida",
+  title: "Catálogo de sobres de papel",
   description:
-    "Catálogo de sobres fabricados en Bogotá: diezmo, colores, eventos, correspondencia, e-commerce y centros médicos. Medidas básicas y formatos a pedido, con entrega en Colombia.",
+    "Catálogo de sobres de papel fabricados en Bogotá: diezmo, colores, eventos, correspondencia, e-commerce y centros médicos. Medidas básicas y formatos a pedido, con entrega en Colombia.",
   path: "/productos",
 });
 
@@ -17,7 +17,7 @@ export default function ProductsPage() {
       <PageHero
         eyebrow="Catálogo"
         title="Sobres fabricados para el uso, no para un anaquel genérico"
-        lede="Seis líneas cubren la mayoría de los proyectos. Si el contenido pide otra medida o otro papel, lo fabricamos."
+        lede="Nuestras líneas de sobres de papel cubren la mayoría de los proyectos. Si el contenido pide otra medida o otro papel, lo fabricamos."
       />
       <section className="bg-paper py-14 md:py-16">
         <ul className="mx-auto grid max-w-[1280px] grid-cols-2 gap-3 px-4 sm:gap-7 sm:px-6 lg:grid-cols-3 md:px-14">

@@ -16,7 +16,7 @@ function canonicalPath(path: string) {
 }
 
 export const siteDescription =
-  "SOBRYPAL fabrica sobres de distintos tamaños en Bogotá y atiende pedidos en toda Colombia. Papel, medida e impresión para diezmo, correspondencia, e-commerce, centros médicos y eventos.";
+  "SOBRYPAL fabrica sobres de papel a la medida en Bogotá y atiende pedidos en toda Colombia. Papel, medida e impresión para diezmo, correspondencia, e-commerce, centros médicos y eventos.";
 
 const shareImage = {
   url: "/assets/logo-sobrypal.png",
@@ -79,6 +79,7 @@ export function businessJsonLd() {
     },
     knowsAbout: [
       "Fabricación de sobres",
+      "Sobres de papel",
       "Sobres a la medida",
       "Sobres de distintos tamaños",
       "Impresión de sobres",
