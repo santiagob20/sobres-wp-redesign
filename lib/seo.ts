@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { company, products } from "@/lib/site";
 
-export const siteUrl = "https://solucionesensobres.com";
+export const siteUrl = "https://www.sobrypal.com.co";
 
 export const basePath = process.env.NEXT_PUBLIC_BASE_PATH?.replace(/\/$/, "") || "";
 

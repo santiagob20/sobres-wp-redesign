@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WhatsappFab } from "@/components/whatsapp-fab";
 import { JsonLd } from "@/components/json-ld";
-import { businessJsonLd, siteDescription } from "@/lib/seo";
+import { businessJsonLd, siteDescription, siteUrl } from "@/lib/seo";
 import { company } from "@/lib/site";
 import "@/styles/globals.css";
 
@@ -23,7 +23,7 @@ const sourceSerif = Source_Serif_4({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://solucionesensobres.com"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Sobres de papel a la medida en Bogotá · SOBRYPAL",
     template: "%s · SOBRYPAL",
